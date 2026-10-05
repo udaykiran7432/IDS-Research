@@ -1,0 +1,42 @@
+{
+  "dataset": "UGRansome",
+  "random_state": 42,
+  "test_size": 0.3,
+  "split_strategy": "stratified",
+  "dropped_columns": [
+    "SeddAddress",
+    "ExpAddress",
+    "IPaddress"
+  ],
+  "categorical_columns": [
+    "Protcol",
+    "Flag",
+    "Family",
+    "Threats"
+  ],
+  "numerical_columns": [
+    "Time",
+    "Clusters",
+    "BTC",
+    "USD",
+    "Netflow_Bytes",
+    "Port"
+  ],
+  "target_column": "Prediction",
+  "target_classes": {
+    "A": 0,
+    "S": 1,
+    "SS": 2
+  },
+  "raw_rows_after_dropna": 149043,
+  "train_rows": 104330,
+  "test_rows": 44713,
+  "artifacts": [
+    "phase1/Protcol_encoder.joblib",
+    "phase1/Flag_encoder.joblib",
+    "phase1/Family_encoder.joblib",
+    "phase1/Threats_encoder.joblib",
+    "phase1/target_encoder.joblib",
+    "phase1/minmax_scaler.joblib"
+  ]
+}
