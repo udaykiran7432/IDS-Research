@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+
+# Environment / secrets
+.env
+.env.*
+
+# Project data
+data/raw/
+data/processed/
+
+# Model outputs
+models/
+*.pkl
+*.joblib
+*.pt
+*.pth
+*.onnx
+
+# Experiment outputs
+results/
+experiments/
+
+# Python tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
