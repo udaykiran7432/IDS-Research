@@ -25,7 +25,20 @@ CHECKPOINT_PATH = (
 REPORT_DIR = PROJECT_ROOT / "reports" / "phase3"
 
 
-def evaluate():
+def evaluate(
+    checkpoint_path=None,
+    report_dir=None,
+):
+    checkpoint_path = (
+    Path(checkpoint_path).resolve()
+    if checkpoint_path
+    else CHECKPOINT_PATH
+)
+    report_dir = (
+        Path(report_dir)
+        if report_dir
+        else REPORT_DIR
+    )
     (
         _,
         _,
@@ -36,7 +49,7 @@ def evaluate():
     ) = load_data()
 
     checkpoint = torch.load(
-        CHECKPOINT_PATH,
+        checkpoint_path,
         map_location="cpu",
         weights_only=True,
     )
@@ -133,7 +146,7 @@ def evaluate():
         "experiment": "d3qn_evaluation",
         "method": "Dueling Double Deep Q-Network",
         "checkpoint": str(
-            CHECKPOINT_PATH.relative_to(
+            checkpoint_path.relative_to(
                 PROJECT_ROOT
             )
         ),
@@ -175,13 +188,13 @@ def evaluate():
         "classification_report": report,
     }
 
-    REPORT_DIR.mkdir(
+    report_dir.mkdir(
         parents=True,
         exist_ok=True,
     )
 
     output_path = (
-        REPORT_DIR / "d3qn_evaluation.json"
+        report_dir / "d3qn_evaluation.json"
     )
 
     with output_path.open("w") as f:
@@ -238,4 +251,25 @@ def evaluate():
 
 
 if __name__ == "__main__":
-    evaluate()
+    import argparse
+
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument(
+        "--checkpoint",
+        type=str,
+        default=None,
+    )
+
+    parser.add_argument(
+        "--report-dir",
+        type=str,
+        default=None,
+    )
+
+    args = parser.parse_args()
+
+    evaluate(
+        checkpoint_path=args.checkpoint,
+        report_dir=args.report_dir,
+    )

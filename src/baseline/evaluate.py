@@ -21,7 +21,20 @@ CHECKPOINT_PATH = PROJECT_ROOT / "artifacts" / "phase2" / "baseline_dqn.pt"
 REPORT_DIR = PROJECT_ROOT / "reports" / "phase2"
 
 
-def evaluate():
+def evaluate(
+    checkpoint_path=None,
+    report_dir=None,
+):
+    checkpoint_path = (
+    Path(checkpoint_path).resolve()
+    if checkpoint_path
+    else CHECKPOINT_PATH
+)
+    report_dir = (
+        Path(report_dir)
+        if report_dir
+        else REPORT_DIR
+    )
     (
     _,
     _,
@@ -32,7 +45,7 @@ def evaluate():
     ) = load_data()
 
     checkpoint = torch.load(
-        CHECKPOINT_PATH,
+        checkpoint_path,
         map_location="cpu",
         weights_only=True,
     )
@@ -106,7 +119,7 @@ def evaluate():
     results = {
         "experiment": "baseline_dqn_evaluation",
         "checkpoint": str(
-            CHECKPOINT_PATH.relative_to(PROJECT_ROOT)
+            checkpoint_path.relative_to(PROJECT_ROOT)
         ),
         "evaluation_device": "cpu",
         "test_samples": int(len(y_test)),
@@ -135,9 +148,9 @@ def evaluate():
         "classification_report": report,
     }
 
-    REPORT_DIR.mkdir(parents=True, exist_ok=True)
+    report_dir.mkdir(parents=True, exist_ok=True)
 
-    output_path = REPORT_DIR / "baseline_evaluation.json"
+    output_path = report_dir / "baseline_evaluation.json"
 
     with output_path.open("w") as f:
         json.dump(results, f, indent=2)
@@ -175,4 +188,25 @@ def evaluate():
 
 
 if __name__ == "__main__":
-    evaluate()
+    import argparse
+
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument(
+        "--checkpoint",
+        type=str,
+        default=None,
+    )
+
+    parser.add_argument(
+        "--report-dir",
+        type=str,
+        default=None,
+    )
+
+    args = parser.parse_args()
+
+    evaluate(
+        checkpoint_path=args.checkpoint,
+        report_dir=args.report_dir,
+    )

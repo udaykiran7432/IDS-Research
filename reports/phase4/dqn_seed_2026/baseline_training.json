@@ -1,0 +1,115 @@
+{
+  "experiment": "baseline_dqn",
+  "seed": 2026,
+  "device": "cpu",
+  "state_dimension": 8,
+  "action_dimension": 2,
+  "episodes": 10,
+  "steps_per_episode": 20000,
+  "total_steps": 200000,
+  "replay_capacity": 100000,
+  "batch_size": 64,
+  "learning_rate": 0.001,
+  "gamma": 0.99,
+  "epsilon_start": 1.0,
+  "epsilon_end": 0.1,
+  "epsilon_decay": 0.995,
+  "epsilon_decay_frequency": "every_step",
+  "target_update": "end_of_episode",
+  "loss": "MSE",
+  "optimizer": "Adam",
+  "state_transition": "sequential_training_data",
+  "history": [
+    {
+      "episode": 1,
+      "steps_completed": 20000,
+      "total_steps": 20000,
+      "episode_reward": 9228.600000001243,
+      "mean_loss": 0.10623292553404357,
+      "epsilon": 0.1,
+      "replay_size": 20000
+    },
+    {
+      "episode": 2,
+      "steps_completed": 20000,
+      "total_steps": 40000,
+      "episode_reward": 9770.80000000142,
+      "mean_loss": 0.23798382643461227,
+      "epsilon": 0.1,
+      "replay_size": 40000
+    },
+    {
+      "episode": 3,
+      "steps_completed": 20000,
+      "total_steps": 60000,
+      "episode_reward": 9988.20000000148,
+      "mean_loss": 0.25822200945466756,
+      "epsilon": 0.1,
+      "replay_size": 60000
+    },
+    {
+      "episode": 4,
+      "steps_completed": 20000,
+      "total_steps": 80000,
+      "episode_reward": 9816.200000001443,
+      "mean_loss": 0.25900972576215864,
+      "epsilon": 0.1,
+      "replay_size": 80000
+    },
+    {
+      "episode": 5,
+      "steps_completed": 20000,
+      "total_steps": 100000,
+      "episode_reward": 9959.000000001484,
+      "mean_loss": 0.2191875395592302,
+      "epsilon": 0.1,
+      "replay_size": 100000
+    },
+    {
+      "episode": 6,
+      "steps_completed": 20000,
+      "total_steps": 120000,
+      "episode_reward": 10018.000000001499,
+      "mean_loss": 0.2396747812382877,
+      "epsilon": 0.1,
+      "replay_size": 100000
+    },
+    {
+      "episode": 7,
+      "steps_completed": 20000,
+      "total_steps": 140000,
+      "episode_reward": 10013.200000001503,
+      "mean_loss": 0.2609449443899095,
+      "epsilon": 0.1,
+      "replay_size": 100000
+    },
+    {
+      "episode": 8,
+      "steps_completed": 20000,
+      "total_steps": 160000,
+      "episode_reward": 9961.200000001487,
+      "mean_loss": 0.24830946790128947,
+      "epsilon": 0.1,
+      "replay_size": 100000
+    },
+    {
+      "episode": 9,
+      "steps_completed": 20000,
+      "total_steps": 180000,
+      "episode_reward": 9900.000000001482,
+      "mean_loss": 0.23903440933078526,
+      "epsilon": 0.1,
+      "replay_size": 100000
+    },
+    {
+      "episode": 10,
+      "steps_completed": 20000,
+      "total_steps": 200000,
+      "episode_reward": 10005.000000001508,
+      "mean_loss": 0.2603608400270343,
+      "epsilon": 0.1,
+      "replay_size": 100000
+    }
+  ],
+  "checkpoint": "artifacts/phase4/dqn_seed_2026/baseline_dqn.pt"
+}

@@ -31,11 +31,20 @@ def train(
     batch_size=64,
     seed=42,
     device="cpu",
+    artifact_dir=None,
+    report_dir=None,
 ):
     set_seed(seed)
+    artifact_dir = (
+        Path(artifact_dir) if artifact_dir else ARTIFACT_DIR
+    )
+    report_dir = (
+        Path(report_dir) if report_dir else REPORT_DIR
+    )
 
-    ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
-    REPORT_DIR.mkdir(parents=True, exist_ok=True)
+    artifact_dir.mkdir(parents=True, exist_ok=True)
+    report_dir.mkdir(parents=True, exist_ok=True)
+
 
     (
         X_train,
@@ -145,7 +154,7 @@ def train(
             f"replay={len(replay_buffer)}"
         )
 
-    checkpoint_path = ARTIFACT_DIR / "d3qn.pt"
+    checkpoint_path = artifact_dir / "d3qn.pt"
 
     torch.save(
         {
@@ -195,7 +204,7 @@ def train(
         ),
     }
 
-    report_path = REPORT_DIR / "d3qn_training.json"
+    report_path = report_dir / "d3qn_training.json"
 
     with report_path.open("w") as f:
         json.dump(report, f, indent=2)
@@ -232,10 +241,12 @@ def main():
         default=42,
     )
     parser.add_argument(
-        "--device",
-        type=str,
-        default="cpu",
-    )
+    "--device",
+    type=str,
+    default="cpu",
+)
+    parser.add_argument("--artifact-dir", type=str, default=None)
+    parser.add_argument("--report-dir", type=str, default=None)
 
     args = parser.parse_args()
 
@@ -246,6 +257,8 @@ def main():
         batch_size=args.batch_size,
         seed=args.seed,
         device=args.device,
+        artifact_dir=args.artifact_dir,
+        report_dir=args.report_dir,
     )
 
 
