@@ -1,0 +1,72 @@
+{
+  "experiment": "d3qn_evaluation",
+  "method": "Dueling Double Deep Q-Network",
+  "checkpoint": "artifacts/phase5/d3qn_per_seed_7/d3qn_per.pt",
+  "evaluation_device": "cpu",
+  "test_samples": 44713,
+  "state_dimension": 8,
+  "original_test_class_distribution": {
+    "0": 12768,
+    "1": 19914,
+    "2": 12031
+  },
+  "binary_mapping": {
+    "0": "Benign (original S)",
+    "1": "Ransomware (original A + SS)"
+  },
+  "confusion_matrix": {
+    "labels": [
+      "Benign",
+      "Ransomware"
+    ],
+    "matrix": [
+      [
+        18438,
+        1476
+      ],
+      [
+        242,
+        24557
+      ]
+    ],
+    "TN": 18438,
+    "FP": 1476,
+    "FN": 242,
+    "TP": 24557
+  },
+  "metrics": {
+    "accuracy": 0.9615771699505736,
+    "precision": 0.9433027311489264,
+    "recall_detection_rate": 0.9902415419976612,
+    "f1": 0.9662023921938936,
+    "false_positive_rate": 0.07411871045495631,
+    "specificity": 0.9258812895450437
+  },
+  "classification_report": {
+    "Benign": {
+      "precision": 0.9870449678800857,
+      "recall": 0.9258812895450437,
+      "f1-score": 0.9554853085971913,
+      "support": 19914.0
+    },
+    "Ransomware": {
+      "precision": 0.9433027311489264,
+      "recall": 0.9902415419976612,
+      "f1-score": 0.9662023921938936,
+      "support": 24799.0
+    },
+    "accuracy": 0.9615771699505736,
+    "macro avg": {
+      "precision": 0.965173849514506,
+      "recall": 0.9580614157713525,
+      "f1-score": 0.9608438503955424,
+      "support": 44713.0
+    },
+    "weighted avg": {
+      "precision": 0.9627843785951793,
+      "recall": 0.9615771699505736,
+      "f1-score": 0.9614292836405707,
+      "support": 44713.0
+    }
+  }
+}

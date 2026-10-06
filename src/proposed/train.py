@@ -9,13 +9,13 @@ import torch
 from agent import D3QNAgent
 from data import load_data
 from environment import IDSEnvironment
-from replay_buffer import ReplayBuffer
+from replay_buffer import PrioritizedReplayBuffer
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
-ARTIFACT_DIR = PROJECT_ROOT / "artifacts" / "phase3"
-REPORT_DIR = PROJECT_ROOT / "reports" / "phase3"
+ARTIFACT_DIR = PROJECT_ROOT / "artifacts" / "phase5"
+REPORT_DIR = PROJECT_ROOT / "reports" / "phase5"
 
 
 def set_seed(seed):
@@ -33,8 +33,12 @@ def train(
     device="cpu",
     artifact_dir=None,
     report_dir=None,
+    per_alpha=0.6,
+    per_beta_start=0.4,
+    per_beta_increment=0.001,
 ):
     set_seed(seed)
+
     artifact_dir = (
         Path(artifact_dir) if artifact_dir else ARTIFACT_DIR
     )
@@ -44,7 +48,6 @@ def train(
 
     artifact_dir.mkdir(parents=True, exist_ok=True)
     report_dir.mkdir(parents=True, exist_ok=True)
-
 
     (
         X_train,
@@ -71,11 +74,15 @@ def train(
         batch_size=batch_size,
         seed=seed,
         device=device,
+        use_per=True,
     )
 
-    replay_buffer = ReplayBuffer(
+    replay_buffer = PrioritizedReplayBuffer(
         capacity=replay_capacity,
         seed=seed,
+        alpha=per_alpha,
+        beta_start=per_beta_start,
+        beta_increment=per_beta_increment,
     )
 
     history = []
@@ -114,8 +121,21 @@ def train(
             total_steps += 1
 
             if len(replay_buffer) >= batch_size:
-                experiences = replay_buffer.sample(batch_size)
-                loss = agent.optimize(experiences)
+                experiences, indices, weights = replay_buffer.sample(
+                    batch_size
+                )
+
+                loss, td_errors = agent.optimize(
+                    experiences,
+                    indices=indices,
+                    weights=weights,
+                )
+
+                replay_buffer.update_priorities(
+                    indices,
+                    td_errors,
+                )
+
                 episode_losses.append(loss)
 
             agent.decay_epsilon_step()
@@ -141,6 +161,7 @@ def train(
             "mean_loss": mean_loss,
             "epsilon": agent.epsilon,
             "replay_size": len(replay_buffer),
+            "per_beta": replay_buffer.beta,
         }
 
         history.append(episode_result)
@@ -151,10 +172,11 @@ def train(
             f"reward={episode_reward:.4f} | "
             f"loss={mean_loss} | "
             f"epsilon={agent.epsilon:.6f} | "
-            f"replay={len(replay_buffer)}"
+            f"replay={len(replay_buffer)} | "
+            f"beta={replay_buffer.beta:.6f}"
         )
 
-    checkpoint_path = artifact_dir / "d3qn.pt"
+    checkpoint_path = (artifact_dir / "d3qn_per.pt").resolve()
 
     torch.save(
         {
@@ -165,13 +187,16 @@ def train(
             "episodes": episodes,
             "steps_per_episode": steps_per_episode,
             "seed": seed,
+            "per_alpha": per_alpha,
+            "per_beta_start": per_beta_start,
+            "per_beta_increment": per_beta_increment,
         },
         checkpoint_path,
     )
 
     report = {
-        "experiment": "d3qn",
-        "method": "Dueling Double Deep Q-Network",
+        "experiment": "d3qn_per",
+        "method": "Dueling Double Deep Q-Network + Prioritized Experience Replay",
         "seed": seed,
         "device": str(agent.device),
         "state_dimension": X_train.shape[1],
@@ -188,7 +213,7 @@ def train(
         "epsilon_decay": 0.995,
         "epsilon_decay_frequency": "every_step",
         "target_update": "end_of_episode",
-        "loss": "MSE",
+        "loss": "importance_sampling_weighted_MSE",
         "optimizer": "Adam",
         "state_transition": "sequential_training_data",
         "architecture": {
@@ -198,18 +223,27 @@ def train(
             "advantage_stream": [64, 2],
         },
         "target_rule": "double_dqn",
+        "prioritized_replay": {
+            "enabled": True,
+            "alpha": per_alpha,
+            "beta_start": per_beta_start,
+            "beta_increment": per_beta_increment,
+            "priority_epsilon": 1e-6,
+            "priority_source": "absolute_td_error",
+            "new_transition_priority": "maximum_current_priority",
+        },
         "history": history,
         "checkpoint": str(
             checkpoint_path.relative_to(PROJECT_ROOT)
         ),
     }
 
-    report_path = report_dir / "d3qn_training.json"
+    report_path = report_dir / "d3qn_per_training.json"
 
     with report_path.open("w") as f:
         json.dump(report, f, indent=2)
 
-    print("\nD3QN training complete.")
+    print("\nD3QN + PER training complete.")
     print("Checkpoint:", checkpoint_path)
     print("Report:", report_path)
 
@@ -241,12 +275,19 @@ def main():
         default=42,
     )
     parser.add_argument(
-    "--device",
-    type=str,
-    default="cpu",
-)
+        "--device",
+        type=str,
+        default="cpu",
+    )
     parser.add_argument("--artifact-dir", type=str, default=None)
     parser.add_argument("--report-dir", type=str, default=None)
+    parser.add_argument("--per-alpha", type=float, default=0.6)
+    parser.add_argument("--per-beta-start", type=float, default=0.4)
+    parser.add_argument(
+        "--per-beta-increment",
+        type=float,
+        default=0.001,
+    )
 
     args = parser.parse_args()
 
@@ -259,6 +300,9 @@ def main():
         device=args.device,
         artifact_dir=args.artifact_dir,
         report_dir=args.report_dir,
+        per_alpha=args.per_alpha,
+        per_beta_start=args.per_beta_start,
+        per_beta_increment=args.per_beta_increment,
     )
 
 

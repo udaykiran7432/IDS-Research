@@ -8,7 +8,7 @@ from dqn import D3QN
 
 
 class D3QNAgent:
-    """D3QN agent: Dueling architecture + Double-DQN learning."""
+    """D3QN agent: Dueling architecture + Double-DQN learning + optional PER."""
 
     def __init__(
         self,
@@ -22,6 +22,7 @@ class D3QNAgent:
         batch_size=64,
         seed=42,
         device=None,
+        use_per=False,
     ):
         self.state_dim = state_dim
         self.action_dim = action_dim
@@ -32,6 +33,7 @@ class D3QNAgent:
         self.epsilon_end = epsilon_end
         self.epsilon_decay = epsilon_decay
         self.batch_size = batch_size
+        self.use_per = use_per
 
         self.random = random.Random(seed)
 
@@ -61,7 +63,9 @@ class D3QNAgent:
             lr=learning_rate,
         )
 
-        self.loss_fn = nn.MSELoss()
+        # Keep reduction='none' so PER can apply an IS weight to
+        # each transition before averaging the minibatch loss.
+        self.loss_fn = nn.MSELoss(reduction="none")
 
     def select_action(self, state, training=True):
         """Select an action using epsilon-greedy policy."""
@@ -82,8 +86,19 @@ class D3QNAgent:
             torch.argmax(q_values, dim=1).item()
         )
 
-    def optimize(self, experiences):
-        """Perform one Double-DQN optimization step."""
+    def optimize(self, experiences, indices=None, weights=None):
+        """
+        Perform one Double-DQN optimization step.
+
+        For PER:
+            experiences = sampled transitions
+            indices = replay-buffer indices
+            weights = importance-sampling weights
+
+        Returns:
+            If PER is disabled: loss
+            If PER is enabled: (loss, td_errors)
+        """
 
         states, actions, rewards, next_states, dones = zip(
             *experiences
@@ -147,14 +162,40 @@ class D3QNAgent:
                 + self.gamma * next_q * (1.0 - dones)
             )
 
-        loss = self.loss_fn(
+        td_errors = target_q - current_q
+
+        per_sample_loss = self.loss_fn(
             current_q,
             target_q,
         )
 
+        if self.use_per:
+            if weights is None:
+                raise ValueError(
+                    "PER optimization requires importance-sampling weights."
+                )
+
+            weights_tensor = torch.as_tensor(
+                weights,
+                dtype=torch.float32,
+                device=self.device,
+            )
+
+            loss = (
+                weights_tensor * per_sample_loss
+            ).mean()
+        else:
+            loss = per_sample_loss.mean()
+
         self.optimizer.zero_grad()
         loss.backward()
         self.optimizer.step()
+
+        if self.use_per:
+            return (
+                float(loss.item()),
+                td_errors.detach().cpu().numpy(),
+            )
 
         return float(loss.item())
 
@@ -175,18 +216,22 @@ class D3QNAgent:
 
 
 if __name__ == "__main__":
-    print("=== D3QN Agent Test ===")
+    print("=== D3QN + PER Agent Test ===")
 
     torch.manual_seed(42)
     np.random.seed(42)
 
-    agent = D3QNAgent(device="cpu")
+    agent = D3QNAgent(
+        device="cpu",
+        use_per=True,
+    )
 
     print("Device:", agent.device)
     print("Gamma:", agent.gamma)
     print("Learning rate: 0.001")
     print("Batch size:", agent.batch_size)
     print("Initial epsilon:", agent.epsilon)
+    print("PER enabled:", agent.use_per)
 
     state = np.zeros(
         8,
@@ -199,7 +244,6 @@ if __name__ == "__main__":
     )
 
     print("Selected action:", action)
-
     assert action in (0, 1)
 
     experiences = []
@@ -227,11 +271,21 @@ if __name__ == "__main__":
             )
         )
 
-    loss = agent.optimize(experiences)
+    # Smoke-test the PER optimization interface.
+    weights = np.ones(64, dtype=np.float32)
+
+    loss, td_errors = agent.optimize(
+        experiences,
+        indices=list(range(64)),
+        weights=weights,
+    )
 
     print("Optimization loss:", loss)
+    print("TD-error count:", len(td_errors))
 
     assert np.isfinite(loss)
+    assert td_errors.shape == (64,)
+    assert np.all(np.isfinite(td_errors))
 
     old_epsilon = agent.epsilon
 
@@ -247,4 +301,4 @@ if __name__ == "__main__":
     agent.update_target_network()
 
     print("Target network update: PASSED")
-    print("D3QN agent test: PASSED")
+    print("D3QN + PER agent test: PASSED")
