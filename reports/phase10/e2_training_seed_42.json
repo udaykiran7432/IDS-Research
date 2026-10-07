@@ -1,0 +1,82 @@
+{
+  "experiment": "E2",
+  "seed": 42,
+  "train_rows": 69428,
+  "state_dim": 8,
+  "episodes": 10,
+  "steps_per_episode": 20000,
+  "final_epsilon": 0.1,
+  "episode_results": [
+    {
+      "episode": 1,
+      "steps": 20000,
+      "total_reward": 9499.400000001304,
+      "mean_loss": 0.09591338446531694,
+      "epsilon": 0.1
+    },
+    {
+      "episode": 2,
+      "steps": 20000,
+      "total_reward": 10021.000000001446,
+      "mean_loss": 0.22009234083518386,
+      "epsilon": 0.1
+    },
+    {
+      "episode": 3,
+      "steps": 20000,
+      "total_reward": 10057.000000001459,
+      "mean_loss": 0.21638041610866784,
+      "epsilon": 0.1
+    },
+    {
+      "episode": 4,
+      "steps": 20000,
+      "total_reward": 10129.60000000148,
+      "mean_loss": 0.24571482087001204,
+      "epsilon": 0.1
+    },
+    {
+      "episode": 5,
+      "steps": 20000,
+      "total_reward": 10108.000000001484,
+      "mean_loss": 0.23343816611021756,
+      "epsilon": 0.1
+    },
+    {
+      "episode": 6,
+      "steps": 20000,
+      "total_reward": 10208.800000001509,
+      "mean_loss": 0.24145113268233837,
+      "epsilon": 0.1
+    },
+    {
+      "episode": 7,
+      "steps": 20000,
+      "total_reward": 10240.800000001498,
+      "mean_loss": 0.22417710795737802,
+      "epsilon": 0.1
+    },
+    {
+      "episode": 8,
+      "steps": 20000,
+      "total_reward": 10097.00000000148,
+      "mean_loss": 0.21436089632660152,
+      "epsilon": 0.1
+    },
+    {
+      "episode": 9,
+      "steps": 20000,
+      "total_reward": 10219.400000001522,
+      "mean_loss": 0.27371088009476663,
+      "epsilon": 0.1
+    },
+    {
+      "episode": 10,
+      "steps": 20000,
+      "total_reward": 10220.600000001506,
+      "mean_loss": 0.2256085651371628,
+      "epsilon": 0.1
+    }
+  ],
+  "checkpoint": "/Volumes/Manohar/IDS-Research/artifacts/phase10/e2_seed_42.pt"
+}

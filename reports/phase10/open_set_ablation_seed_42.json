@@ -1,0 +1,68 @@
+{
+  "experiment": "Phase10.4_open_set_ablation",
+  "seed": 42,
+  "checkpoint": "artifacts/phase8/d3qn_per_vae_seed_42.pt",
+  "test_samples": 62257,
+  "known_samples": 37195,
+  "unseen_locky_samples": 25062,
+  "threshold": 0.23906713426113124,
+  "open_set_signal": "vae_reconstruction_error",
+  "closed_set": {
+    "known_metrics": {
+      "accuracy": 0.9200430165344804,
+      "precision": 0.8807212803589146,
+      "recall": 0.9898666666666667,
+      "f1": 0.9321097566543396,
+      "fpr": 0.16686783343391673,
+      "specificity": 0.8331321665660832,
+      "confusion_matrix": [
+        [
+          13805,
+          2765
+        ],
+        [
+          209,
+          20416
+        ]
+      ]
+    },
+    "locky_unknown_detection_rate": 0.0,
+    "locky_false_accept_rate": 1.0,
+    "locky_predictions": {
+      "benign": 7012,
+      "ransomware": 18050
+    }
+  },
+  "open_set": {
+    "known_unknown": 1937,
+    "known_accepted": 35258,
+    "known_rejection_rate": 0.05207689205538379,
+    "known_acceptance_rate": 0.9479231079446162,
+    "locky_unknown": 14635,
+    "locky_accepted": 10427,
+    "locky_unknown_detection_rate": 0.5839517995371478,
+    "locky_false_accept_rate": 0.4160482004628521,
+    "known_retained_metrics": {
+      "accuracy": 0.9220602416472857,
+      "precision": 0.8839002267573696,
+      "recall": 0.9904461835552394,
+      "f1": 0.9341449386503068,
+      "fpr": 0.1643132220795892,
+      "specificity": 0.8356867779204108,
+      "confusion_matrix": [
+        [
+          13020,
+          2560
+        ],
+        [
+          188,
+          19490
+        ]
+      ]
+    }
+  },
+  "ablation_delta": {
+    "locky_unknown_detection_rate": 0.5839517995371478,
+    "locky_false_accept_rate_reduction": 0.5839517995371479
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "experiment": "E4b",
+  "description": "VAE representation ablation without Family feature",
+  "seed": 42,
+  "device": "cpu",
+  "checkpoint": "artifacts/phase10/vae_no_family_seed_42.pt",
+  "feature_columns": [
+    "Time",
+    "Protcol",
+    "Flag",
+    "Clusters",
+    "Threats",
+    "USD",
+    "BTC"
+  ],
+  "input_dim": 7,
+  "latent_dim": 4,
+  "train_size": 69428,
+  "calibration_size": 17358,
+  "test_size": 62257,
+  "known_test_size": 37195,
+  "locky_test_size": 25062,
+  "threshold_method": "95th percentile of known calibration reconstruction error",
+  "threshold": 0.23192323744297028,
+  "calibration_rejection_rate": 0.04994815070860698,
+  "known_rejection_rate": 0.05086705202312139,
+  "locky_unknown_detection_rate": 0.04588620221849812,
+  "locky_false_accept_rate": 0.9541137977815018,
+  "reconstruction_roc_auc_known_vs_locky": 0.46845181337029695,
+  "summaries": [
+    {
+      "name": "train",
+      "count": 69428,
+      "mean": 0.11409187316894531,
+      "std": 0.07638026773929596,
+      "median": 0.12457344681024551,
+      "p95": 0.23179912567138672,
+      "p99": 0.2906869947910309,
+      "min": 0.001633169362321496,
+      "max": 0.43253833055496216
+    },
+    {
+      "name": "calibration",
+      "count": 17358,
+      "mean": 0.11334343254566193,
+      "std": 0.07595493644475937,
+      "median": 0.12389253079891205,
+      "p95": 0.23192323744297028,
+      "p99": 0.2860633134841919,
+      "min": 0.001634629094041884,
+      "max": 0.4305136501789093
+    },
+    {
+      "name": "known_test",
+      "count": 37195,
+      "mean": 0.11433929204940796,
+      "std": 0.07654343545436859,
+      "median": 0.12460099160671234,
+      "p95": 0.23216387629508972,
+      "p99": 0.2897786498069763,
+      "min": 0.001633169362321496,
+      "max": 0.43253833055496216
+    },
+    {
+      "name": "locky_test",
+      "count": 25062,
+      "mean": 0.1049552783370018,
+      "std": 0.07904940843582153,
+      "median": 0.11116665601730347,
+      "p95": 0.23092146217823029,
+      "p99": 0.2871304154396057,
+      "min": 0.001633169362321496,
+      "max": 0.43253833055496216
+    }
+  ],
+  "phase8_family_included_reference": {
+    "calibration_mean": 0.1246670559,
+    "calibration_p95": 0.23906713426113124,
+    "known_test_mean": 0.1252707243,
+    "known_test_p95": 0.2411741,
+    "locky_test_mean": 0.2711395025,
+    "locky_test_p95": 0.4136152,
+    "reconstruction_roc_auc": 0.8981559533,
+    "threshold": 0.23906713426113124,
+    "locky_unknown_rate": 0.583952,
+    "locky_false_accept_rate": 0.416048,
+    "known_rejection_rate": 0.052077
+  }
+}

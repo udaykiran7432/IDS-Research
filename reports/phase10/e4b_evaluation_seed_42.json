@@ -1,0 +1,113 @@
+{
+  "experiment": "E4b",
+  "seed": 42,
+  "vae_features": [
+    "Time",
+    "Protcol",
+    "Flag",
+    "Clusters",
+    "Threats",
+    "USD",
+    "BTC"
+  ],
+  "family_included": false,
+  "threshold_method": "95th percentile of known calibration reconstruction error",
+  "threshold": 0.23192323744297028,
+  "calibration_rejection_rate": 0.04994815070860698,
+  "calibration_classification": {
+    "accuracy": 0.9166378615047817,
+    "precision": 0.8696623926596871,
+    "recall": 0.9561562338334195,
+    "f1": 0.9108605926199717,
+    "fpr": 0.11510492416372325,
+    "specificity": 0.8848950758362768,
+    "confusion_matrix": [
+      [
+        8518,
+        1108
+      ],
+      [
+        339,
+        7393
+      ]
+    ]
+  },
+  "test_size": 62257,
+  "known_test_size": 37195,
+  "locky_test_size": 25062,
+  "known_unknown": 1892,
+  "known_accepted": 35303,
+  "known_rejection_rate": 0.05086705202312139,
+  "known_acceptance_rate": 0.9491329479768786,
+  "locky_unknown": 1150,
+  "locky_accepted": 23912,
+  "locky_unknown_detection_rate": 0.04588620221849812,
+  "locky_false_accept_rate": 0.9541137977815018,
+  "known_closed_set": {
+    "accuracy": 0.913563651028364,
+    "precision": 0.864910650855238,
+    "recall": 0.9551599275799638,
+    "f1": 0.9077977573202559,
+    "fpr": 0.11985454545454545,
+    "specificity": 0.8801454545454546,
+    "confusion_matrix": [
+      [
+        18153,
+        2472
+      ],
+      [
+        743,
+        15827
+      ]
+    ]
+  },
+  "known_retained": {
+    "accuracy": 0.9116788941449735,
+    "precision": 0.8622342883548983,
+    "recall": 0.9531928480204342,
+    "f1": 0.9054349144728863,
+    "fpr": 0.12141729878328157,
+    "specificity": 0.8785827012167184,
+    "confusion_matrix": [
+      [
+        17258,
+        2385
+      ],
+      [
+        733,
+        14927
+      ]
+    ]
+  },
+  "locky_accepted_classification": {
+    "predicted_benign": 12104,
+    "predicted_ransomware": 11808
+  },
+  "reconstruction_summary": {
+    "calibration": {
+      "count": 17358,
+      "mean": 0.11334343254566193,
+      "std": 0.07595493644475937,
+      "median": 0.12389253079891205,
+      "p95": 0.23192323744297028,
+      "max": 0.4305136501789093
+    },
+    "known_test": {
+      "count": 37195,
+      "mean": 0.11433929204940796,
+      "std": 0.07654343545436859,
+      "median": 0.12460099160671234,
+      "p95": 0.23216387629508972,
+      "max": 0.43253833055496216
+    },
+    "locky_test": {
+      "count": 25062,
+      "mean": 0.1049552783370018,
+      "std": 0.07904940843582153,
+      "median": 0.11116665601730347,
+      "p95": 0.23092146217823029,
+      "max": 0.43253833055496216
+    }
+  },
+  "checkpoint": "artifacts/phase10/e4b_d3qn_per_seed_42.pt"
+}

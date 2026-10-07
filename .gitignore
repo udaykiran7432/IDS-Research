@@ -42,3 +42,8 @@ experiments/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+
+# Phase 10 reproducibility checkpoints
+!artifacts/
+!artifacts/phase10/
+!artifacts/phase10/*.pt

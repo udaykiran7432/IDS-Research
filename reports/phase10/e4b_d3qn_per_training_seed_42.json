@@ -1,0 +1,75 @@
+{
+  "experiment": "E4b",
+  "seed": 42,
+  "device": "cpu",
+  "input_features": [
+    "Time",
+    "Protcol",
+    "Flag",
+    "Clusters",
+    "Threats",
+    "USD",
+    "BTC"
+  ],
+  "input_dim": 7,
+  "representation_dim": 5,
+  "representation": [
+    "latent_0",
+    "latent_1",
+    "latent_2",
+    "latent_3",
+    "reconstruction_error"
+  ],
+  "train_size": 69428,
+  "raw_prediction_distribution": {
+    "0": 30929,
+    "1": 38499
+  },
+  "binary_label_distribution": {
+    "0": 38499,
+    "1": 30929
+  },
+  "episode_rewards": [
+    6677.200000000838,
+    7198.600000001052,
+    7289.000000001108,
+    7343.000000001148,
+    7463.4000000011665,
+    7496.400000001199,
+    7489.400000001175,
+    7580.80000000125,
+    7491.000000001208,
+    7650.200000001283
+  ],
+  "episode_losses": [
+    0.02692544649866913,
+    0.0799550892316969,
+    0.09359320249999874,
+    0.08489306354791043,
+    0.09977863727445364,
+    0.0954457027308934,
+    0.09502156456032534,
+    0.09055759078363772,
+    0.10827964330997202,
+    0.10204645811240189
+  ],
+  "episode_epsilons": [
+    0.1,
+    0.1,
+    0.1,
+    0.1,
+    0.1,
+    0.1,
+    0.1,
+    0.1,
+    0.1,
+    0.1
+  ],
+  "final_training": {
+    "episode": 10,
+    "reward": 7650.200000001283,
+    "loss": 0.10204645811240189,
+    "epsilon": 0.1
+  },
+  "checkpoint": "artifacts/phase10/e4b_d3qn_per_seed_42.pt"
+}

@@ -1,0 +1,327 @@
+{
+  "experiment": "E4b VAE without Family feature",
+  "seed": 42,
+  "train_rows": 69428,
+  "input_dim": 7,
+  "hidden_dim": 16,
+  "latent_dim": 4,
+  "beta": 1.0,
+  "batch_size": 256,
+  "epochs": 50,
+  "learning_rate": 0.001,
+  "feature_columns": [
+    "Time",
+    "Protcol",
+    "Flag",
+    "Clusters",
+    "Threats",
+    "USD",
+    "BTC"
+  ],
+  "family_feature_removed": true,
+  "family_minus_one_training_rows": 0,
+  "device": "cpu",
+  "history": [
+    {
+      "epoch": 1,
+      "loss": 3.794777181048667,
+      "reconstruction_loss": 3.2294178616549347,
+      "kl_loss": 0.5653593094727888
+    },
+    {
+      "epoch": 2,
+      "loss": 1.3599694586160058,
+      "reconstruction_loss": 0.5993254250759503,
+      "kl_loss": 0.7606440361327562
+    },
+    {
+      "epoch": 3,
+      "loss": 1.13477822521655,
+      "reconstruction_loss": 0.4863895790233668,
+      "kl_loss": 0.6483886458635152
+    },
+    {
+      "epoch": 4,
+      "loss": 1.0387656696519798,
+      "reconstruction_loss": 0.4543326674222932,
+      "kl_loss": 0.5844330017678081
+    },
+    {
+      "epoch": 5,
+      "loss": 0.9374308375682591,
+      "reconstruction_loss": 0.40550552151366204,
+      "kl_loss": 0.5319253158571396
+    },
+    {
+      "epoch": 6,
+      "loss": 0.8823313380795951,
+      "reconstruction_loss": 0.36819376693677397,
+      "kl_loss": 0.5141375731431498
+    },
+    {
+      "epoch": 7,
+      "loss": 0.8624524059346204,
+      "reconstruction_loss": 0.3580825969533052,
+      "kl_loss": 0.5043698073106544
+    },
+    {
+      "epoch": 8,
+      "loss": 0.8501106284967853,
+      "reconstruction_loss": 0.3523393894691734,
+      "kl_loss": 0.49777123944484786
+    },
+    {
+      "epoch": 9,
+      "loss": 0.8409061715467848,
+      "reconstruction_loss": 0.348528000220125,
+      "kl_loss": 0.49237817123909183
+    },
+    {
+      "epoch": 10,
+      "loss": 0.8363037137534134,
+      "reconstruction_loss": 0.34421217018828426,
+      "kl_loss": 0.4920915445318116
+    },
+    {
+      "epoch": 11,
+      "loss": 0.8321506891951429,
+      "reconstruction_loss": 0.34199341251985155,
+      "kl_loss": 0.4901572763456235
+    },
+    {
+      "epoch": 12,
+      "loss": 0.8301265859972011,
+      "reconstruction_loss": 0.3411281564828128,
+      "kl_loss": 0.4889984298440562
+    },
+    {
+      "epoch": 13,
+      "loss": 0.8244656047877638,
+      "reconstruction_loss": 0.3391042120955181,
+      "kl_loss": 0.48536139060434896
+    },
+    {
+      "epoch": 14,
+      "loss": 0.8220866111152189,
+      "reconstruction_loss": 0.3376852093550881,
+      "kl_loss": 0.48440140417769545
+    },
+    {
+      "epoch": 15,
+      "loss": 0.8192979823047818,
+      "reconstruction_loss": 0.3362802554469453,
+      "kl_loss": 0.483017725297065
+    },
+    {
+      "epoch": 16,
+      "loss": 0.8192375986203968,
+      "reconstruction_loss": 0.3358330913641393,
+      "kl_loss": 0.4834045075859254
+    },
+    {
+      "epoch": 17,
+      "loss": 0.8176200475094951,
+      "reconstruction_loss": 0.33343802164720004,
+      "kl_loss": 0.48418202390660886
+    },
+    {
+      "epoch": 18,
+      "loss": 0.8168189957400528,
+      "reconstruction_loss": 0.3341610224959061,
+      "kl_loss": 0.482657973354036
+    },
+    {
+      "epoch": 19,
+      "loss": 0.8168677884518513,
+      "reconstruction_loss": 0.33438295385574784,
+      "kl_loss": 0.482484834046657
+    },
+    {
+      "epoch": 20,
+      "loss": 0.8135710188050888,
+      "reconstruction_loss": 0.3327708461337934,
+      "kl_loss": 0.4808001717698597
+    },
+    {
+      "epoch": 21,
+      "loss": 0.8133237202705831,
+      "reconstruction_loss": 0.33236746969651315,
+      "kl_loss": 0.48095625241986684
+    },
+    {
+      "epoch": 22,
+      "loss": 0.811960582714061,
+      "reconstruction_loss": 0.33145746602614834,
+      "kl_loss": 0.4805031180065843
+    },
+    {
+      "epoch": 23,
+      "loss": 0.8124189881772402,
+      "reconstruction_loss": 0.33078795347804674,
+      "kl_loss": 0.4816310374687473
+    },
+    {
+      "epoch": 24,
+      "loss": 0.8104005048144088,
+      "reconstruction_loss": 0.3304981223557645,
+      "kl_loss": 0.47990238267842295
+    },
+    {
+      "epoch": 25,
+      "loss": 0.808288169341915,
+      "reconstruction_loss": 0.3287025004489676,
+      "kl_loss": 0.47958567120062284
+    },
+    {
+      "epoch": 26,
+      "loss": 0.8100674524212197,
+      "reconstruction_loss": 0.3294194434025928,
+      "kl_loss": 0.48064800976553074
+    },
+    {
+      "epoch": 27,
+      "loss": 0.8093953853125478,
+      "reconstruction_loss": 0.3287150035766012,
+      "kl_loss": 0.4806803822853931
+    },
+    {
+      "epoch": 28,
+      "loss": 0.8089540839682885,
+      "reconstruction_loss": 0.3260497986075309,
+      "kl_loss": 0.4829042847014218
+    },
+    {
+      "epoch": 29,
+      "loss": 0.8060501237656517,
+      "reconstruction_loss": 0.32620759035074376,
+      "kl_loss": 0.47984253207391503
+    },
+    {
+      "epoch": 30,
+      "loss": 0.8063651584099534,
+      "reconstruction_loss": 0.3260211876860795,
+      "kl_loss": 0.48034397267956
+    },
+    {
+      "epoch": 31,
+      "loss": 0.8055530106299497,
+      "reconstruction_loss": 0.32524318839675814,
+      "kl_loss": 0.4803098222555128
+    },
+    {
+      "epoch": 32,
+      "loss": 0.805336166171288,
+      "reconstruction_loss": 0.3248817917920412,
+      "kl_loss": 0.4804543723136714
+    },
+    {
+      "epoch": 33,
+      "loss": 0.8038946206053055,
+      "reconstruction_loss": 0.3238417043601161,
+      "kl_loss": 0.480052913937514
+    },
+    {
+      "epoch": 34,
+      "loss": 0.8054882597660918,
+      "reconstruction_loss": 0.32406164169442014,
+      "kl_loss": 0.48142661741233583
+    },
+    {
+      "epoch": 35,
+      "loss": 0.8039544118695897,
+      "reconstruction_loss": 0.3222868469011854,
+      "kl_loss": 0.4816675626607289
+    },
+    {
+      "epoch": 36,
+      "loss": 0.8025094632035942,
+      "reconstruction_loss": 0.3222503433642646,
+      "kl_loss": 0.4802591212678905
+    },
+    {
+      "epoch": 37,
+      "loss": 0.8033595811168932,
+      "reconstruction_loss": 0.3218241320671749,
+      "kl_loss": 0.48153545067573655
+    },
+    {
+      "epoch": 38,
+      "loss": 0.8015186521131583,
+      "reconstruction_loss": 0.3200737858478626,
+      "kl_loss": 0.48144486617772764
+    },
+    {
+      "epoch": 39,
+      "loss": 0.8029552152947071,
+      "reconstruction_loss": 0.31965490696946275,
+      "kl_loss": 0.4833003070065727
+    },
+    {
+      "epoch": 40,
+      "loss": 0.800424947959525,
+      "reconstruction_loss": 0.3193152642108579,
+      "kl_loss": 0.48110968462778153
+    },
+    {
+      "epoch": 41,
+      "loss": 0.8011218398378461,
+      "reconstruction_loss": 0.3186380011238535,
+      "kl_loss": 0.4824838398128856
+    },
+    {
+      "epoch": 42,
+      "loss": 0.8000327821507833,
+      "reconstruction_loss": 0.31877918311093145,
+      "kl_loss": 0.4812535990398518
+    },
+    {
+      "epoch": 43,
+      "loss": 0.8004053267265318,
+      "reconstruction_loss": 0.31808330306240634,
+      "kl_loss": 0.48232202245534317
+    },
+    {
+      "epoch": 44,
+      "loss": 0.7989493664758659,
+      "reconstruction_loss": 0.3167380765196351,
+      "kl_loss": 0.4822112912749024
+    },
+    {
+      "epoch": 45,
+      "loss": 0.7968697433352999,
+      "reconstruction_loss": 0.3166853659966303,
+      "kl_loss": 0.4801843767016551
+    },
+    {
+      "epoch": 46,
+      "loss": 0.7995891462185831,
+      "reconstruction_loss": 0.31602190042679407,
+      "kl_loss": 0.483567246803114
+    },
+    {
+      "epoch": 47,
+      "loss": 0.7983114218055264,
+      "reconstruction_loss": 0.31550004514961355,
+      "kl_loss": 0.48281137786469525
+    },
+    {
+      "epoch": 48,
+      "loss": 0.7994175905620076,
+      "reconstruction_loss": 0.31571793504531065,
+      "kl_loss": 0.4836996547474718
+    },
+    {
+      "epoch": 49,
+      "loss": 0.7990720332778048,
+      "reconstruction_loss": 0.31581031119396946,
+      "kl_loss": 0.483261721204721
+    },
+    {
+      "epoch": 50,
+      "loss": 0.7987607985918661,
+      "reconstruction_loss": 0.3151926725026257,
+      "kl_loss": 0.48356812485813677
+    }
+  ],
+  "checkpoint": "/Volumes/Manohar/IDS-Research/artifacts/phase10/vae_no_family_seed_42.pt"
+}

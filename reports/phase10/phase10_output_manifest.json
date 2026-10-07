@@ -1,0 +1,49 @@
+{
+  "phase": 10,
+  "description": "Controlled evaluation outputs generated from saved experiment JSON reports.",
+  "seeds": [
+    42,
+    7,
+    21,
+    123,
+    2026
+  ],
+  "experiments": [
+    "E1 DQN",
+    "E2 D3QN",
+    "E3 D3QN + PER"
+  ],
+  "metrics": [
+    "accuracy",
+    "precision",
+    "recall",
+    "f1",
+    "fpr"
+  ],
+  "source_reports": [
+    "e1_evaluation_seed_42.json",
+    "e1_evaluation_seed_7.json",
+    "e1_evaluation_seed_21.json",
+    "e1_evaluation_seed_123.json",
+    "e1_evaluation_seed_2026.json",
+    "e2_evaluation_seed_42.json",
+    "e2_evaluation_seed_7.json",
+    "e2_evaluation_seed_21.json",
+    "e2_evaluation_seed_123.json",
+    "e2_evaluation_seed_2026.json",
+    "e3_evaluation_seed_42.json",
+    "e3_evaluation_seed_7.json",
+    "e3_evaluation_seed_21.json",
+    "e3_evaluation_seed_123.json",
+    "e3_evaluation_seed_2026.json"
+  ],
+  "outputs": [
+    "phase10_summary_table.csv",
+    "phase10_paired_differences.csv",
+    "phase10_results_table.md",
+    "figures/phase10_mean_sd_comparison.png",
+    "figures/phase10_f1_across_seeds.png",
+    "figures/phase10_d3qn_minus_dqn.png",
+    "figures/phase10_per_minus_d3qn.png"
+  ]
+}

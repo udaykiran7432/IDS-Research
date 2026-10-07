@@ -1,0 +1,54 @@
+{
+  "experiment": "E1",
+  "seed": 123,
+  "calibration_rows": 17358,
+  "test_rows": 62257,
+  "known_test_rows": 37195,
+  "locky_test_rows": 25062,
+  "calibration_prediction_counts": {
+    "benign": 7072,
+    "ransomware": 10286
+  },
+  "all_test_classification": {
+    "accuracy": 0.9020351125174679,
+    "precision": 0.8688873323475238,
+    "recall": 0.9697434709595228,
+    "f1": 0.9165492235068755,
+    "fpr": 0.18232980987770123,
+    "specificity": 0.8176701901222988,
+    "confusion_matrix": [
+      [
+        22665,
+        5054
+      ],
+      [
+        1045,
+        33493
+      ]
+    ]
+  },
+  "known_family_classification": {
+    "accuracy": 0.9557736254872967,
+    "precision": 0.92964505613908,
+    "recall": 0.9955878787878788,
+    "f1": 0.9614871350642661,
+    "fpr": 0.09378394689197345,
+    "specificity": 0.9062160531080266,
+    "confusion_matrix": [
+      [
+        15016,
+        1554
+      ],
+      [
+        91,
+        20534
+      ]
+    ]
+  },
+  "locky_open_set": {
+    "unknown": 0,
+    "known": 25062,
+    "unknown_detection_rate": 0.0,
+    "false_accept_rate": 1.0
+  }
+}
