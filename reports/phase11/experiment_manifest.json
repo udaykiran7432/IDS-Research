@@ -1,0 +1,191 @@
+{
+  "phase": 11,
+  "purpose": "Reproducibility experiment manifest",
+  "frozen_phase10_commit": "899882929e4d3f4a1d1b2084084931b4e9ac7dd6",
+  "controlled_experiments": {
+    "E1_DQN": {
+      "description": "DQN with uniform replay buffer",
+      "training_script": "src/evaluation/train_controlled.py",
+      "evaluation_script": "src/evaluation/evaluate_controlled.py",
+      "config": "E1",
+      "seeds": [
+        {
+          "seed": 42,
+          "checkpoint": "artifacts/phase10/e1_seed_42.pt",
+          "training_report": "reports/phase10/e1_training_seed_42.json",
+          "evaluation_report": "reports/phase10/e1_evaluation_seed_42.json",
+          "checkpoint_exists": true,
+          "training_report_exists": true,
+          "evaluation_report_exists": true
+        },
+        {
+          "seed": 7,
+          "checkpoint": "artifacts/phase10/e1_seed_7.pt",
+          "training_report": "reports/phase10/e1_training_seed_7.json",
+          "evaluation_report": "reports/phase10/e1_evaluation_seed_7.json",
+          "checkpoint_exists": true,
+          "training_report_exists": true,
+          "evaluation_report_exists": true
+        },
+        {
+          "seed": 21,
+          "checkpoint": "artifacts/phase10/e1_seed_21.pt",
+          "training_report": "reports/phase10/e1_training_seed_21.json",
+          "evaluation_report": "reports/phase10/e1_evaluation_seed_21.json",
+          "checkpoint_exists": true,
+          "training_report_exists": true,
+          "evaluation_report_exists": true
+        },
+        {
+          "seed": 123,
+          "checkpoint": "artifacts/phase10/e1_seed_123.pt",
+          "training_report": "reports/phase10/e1_training_seed_123.json",
+          "evaluation_report": "reports/phase10/e1_evaluation_seed_123.json",
+          "checkpoint_exists": true,
+          "training_report_exists": true,
+          "evaluation_report_exists": true
+        },
+        {
+          "seed": 2026,
+          "checkpoint": "artifacts/phase10/e1_seed_2026.pt",
+          "training_report": "reports/phase10/e1_training_seed_2026.json",
+          "evaluation_report": "reports/phase10/e1_evaluation_seed_2026.json",
+          "checkpoint_exists": true,
+          "training_report_exists": true,
+          "evaluation_report_exists": true
+        }
+      ]
+    },
+    "E2_D3QN": {
+      "description": "D3QN with uniform replay buffer",
+      "training_script": "src/evaluation/train_controlled.py",
+      "evaluation_script": "src/evaluation/evaluate_controlled.py",
+      "config": "E2",
+      "seeds": [
+        {
+          "seed": 42,
+          "checkpoint": "artifacts/phase10/e2_seed_42.pt",
+          "training_report": "reports/phase10/e2_training_seed_42.json",
+          "evaluation_report": "reports/phase10/e2_evaluation_seed_42.json",
+          "checkpoint_exists": true,
+          "training_report_exists": true,
+          "evaluation_report_exists": true
+        },
+        {
+          "seed": 7,
+          "checkpoint": "artifacts/phase10/e2_seed_7.pt",
+          "training_report": "reports/phase10/e2_training_seed_7.json",
+          "evaluation_report": "reports/phase10/e2_evaluation_seed_7.json",
+          "checkpoint_exists": true,
+          "training_report_exists": true,
+          "evaluation_report_exists": true
+        },
+        {
+          "seed": 21,
+          "checkpoint": "artifacts/phase10/e2_seed_21.pt",
+          "training_report": "reports/phase10/e2_training_seed_21.json",
+          "evaluation_report": "reports/phase10/e2_evaluation_seed_21.json",
+          "checkpoint_exists": true,
+          "training_report_exists": true,
+          "evaluation_report_exists": true
+        },
+        {
+          "seed": 123,
+          "checkpoint": "artifacts/phase10/e2_seed_123.pt",
+          "training_report": "reports/phase10/e2_training_seed_123.json",
+          "evaluation_report": "reports/phase10/e2_evaluation_seed_123.json",
+          "checkpoint_exists": true,
+          "training_report_exists": true,
+          "evaluation_report_exists": true
+        },
+        {
+          "seed": 2026,
+          "checkpoint": "artifacts/phase10/e2_seed_2026.pt",
+          "training_report": "reports/phase10/e2_training_seed_2026.json",
+          "evaluation_report": "reports/phase10/e2_evaluation_seed_2026.json",
+          "checkpoint_exists": true,
+          "training_report_exists": true,
+          "evaluation_report_exists": true
+        }
+      ]
+    },
+    "E3_D3QN_PER": {
+      "description": "D3QN with prioritized experience replay",
+      "training_script": "src/evaluation/train_controlled.py",
+      "evaluation_script": "src/evaluation/evaluate_controlled.py",
+      "config": "E3",
+      "seeds": [
+        {
+          "seed": 42,
+          "checkpoint": "artifacts/phase10/e3_seed_42.pt",
+          "training_report": "reports/phase10/e3_training_seed_42.json",
+          "evaluation_report": "reports/phase10/e3_evaluation_seed_42.json",
+          "checkpoint_exists": true,
+          "training_report_exists": true,
+          "evaluation_report_exists": true
+        },
+        {
+          "seed": 7,
+          "checkpoint": "artifacts/phase10/e3_seed_7.pt",
+          "training_report": "reports/phase10/e3_training_seed_7.json",
+          "evaluation_report": "reports/phase10/e3_evaluation_seed_7.json",
+          "checkpoint_exists": true,
+          "training_report_exists": true,
+          "evaluation_report_exists": true
+        },
+        {
+          "seed": 21,
+          "checkpoint": "artifacts/phase10/e3_seed_21.pt",
+          "training_report": "reports/phase10/e3_training_seed_21.json",
+          "evaluation_report": "reports/phase10/e3_evaluation_seed_21.json",
+          "checkpoint_exists": true,
+          "training_report_exists": true,
+          "evaluation_report_exists": true
+        },
+        {
+          "seed": 123,
+          "checkpoint": "artifacts/phase10/e3_seed_123.pt",
+          "training_report": "reports/phase10/e3_training_seed_123.json",
+          "evaluation_report": "reports/phase10/e3_evaluation_seed_123.json",
+          "checkpoint_exists": true,
+          "training_report_exists": true,
+          "evaluation_report_exists": true
+        },
+        {
+          "seed": 2026,
+          "checkpoint": "artifacts/phase10/e3_seed_2026.pt",
+          "training_report": "reports/phase10/e3_training_seed_2026.json",
+          "evaluation_report": "reports/phase10/e3_evaluation_seed_2026.json",
+          "checkpoint_exists": true,
+          "training_report_exists": true,
+          "evaluation_report_exists": true
+        }
+      ]
+    }
+  },
+  "ablations": {
+    "E4b_no_family_vae": {
+      "description": "VAE representation without the Family feature",
+      "training_script": "src/evaluation/train_vae_no_family.py",
+      "validation_script": "src/evaluation/validate_vae_no_family.py",
+      "downstream_training_script": "src/evaluation/train_e4b_d3qn_per.py",
+      "evaluation_script": "src/evaluation/evaluate_e4b.py",
+      "seed": 42,
+      "vae_checkpoint": "artifacts/phase10/vae_no_family_seed_42.pt",
+      "d3qn_per_checkpoint": "artifacts/phase10/e4b_d3qn_per_seed_42.pt",
+      "training_report": "reports/phase10/e4b_vae_training_seed_42.json",
+      "validation_report": "reports/phase10/e4b_vae_validation_seed_42.json",
+      "evaluation_report": "reports/phase10/e4b_evaluation_seed_42.json"
+    },
+    "open_set_gate": {
+      "description": "Controlled comparison of closed-set versus open-set decisions",
+      "evaluation_script": "src/evaluation/evaluate_open_set_ablation.py",
+      "seed": 42,
+      "evaluation_report": "reports/phase10/open_set_ablation_seed_42.json"
+    }
+  },
+  "validation": {
+    "missing_files": [],
+    "all_referenced_files_present": true
+  }
+}

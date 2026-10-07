@@ -1,0 +1,27 @@
+{
+  "phase": 11,
+  "purpose": "Reproducibility environment record",
+  "python": {
+    "version": "3.12.10",
+    "executable": "/Volumes/Manohar/IDS-Research/.venv/bin/python",
+    "implementation": "CPython"
+  },
+  "platform": {
+    "system": "Darwin",
+    "release": "25.2.0",
+    "machine": "arm64"
+  },
+  "packages": {
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "torch": "2.14.1",
+    "shap": "0.52.0",
+    "matplotlib": "3.11.2",
+    "ipykernel": "7.4.0",
+    "jupyterlab": "4.6.4",
+    "imbalanced-learn": "0.14.2"
+  },
+  "git_commit": "899882929e4d3f4a1d1b2084084931b4e9ac7dd6"
+}
