@@ -1,0 +1,27 @@
+{
+  "experiment": "Phase 8 family-held-out VAE",
+  "seed": 42,
+  "device": "cpu",
+  "training_dataset": "/Volumes/Manohar/IDS-Research/data/processed/phase7_open_set/train.csv",
+  "train_samples": 69428,
+  "unseen_family_training_samples": 0,
+  "input_dim": 8,
+  "hidden_dim": 16,
+  "latent_dim": 4,
+  "beta": 1.0,
+  "batch_size": 256,
+  "epochs": 50,
+  "learning_rate": 0.001,
+  "checkpoint": "/Volumes/Manohar/IDS-Research/artifacts/phase8/vae_family_heldout_seed_42.pt",
+  "final_train": {
+    "loss": 1.269983983097548,
+    "reconstruction_loss": 0.439790116418182,
+    "kl_loss": 0.8301938646790371
+  },
+  "data_leakage_checks": {
+    "family_minus_one_absent": true,
+    "training_size_correct": true,
+    "calibration_used_for_training": false,
+    "test_used_for_training": false
+  }
+}

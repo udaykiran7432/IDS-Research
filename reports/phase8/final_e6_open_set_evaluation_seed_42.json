@@ -1,0 +1,102 @@
+{
+  "experiment": "E6_D3QN_PER_VAE_OPEN_SET",
+  "seed": 42,
+  "checkpoint": "/Volumes/Manohar/IDS-Research/artifacts/phase8/d3qn_per_vae_seed_42.pt",
+  "test_samples": 62257,
+  "known_samples": 37195,
+  "unseen_family": "Locky",
+  "unseen_samples": 25062,
+  "feature_columns": [
+    "latent_0",
+    "latent_1",
+    "latent_2",
+    "latent_3",
+    "reconstruction_error"
+  ],
+  "state_dimension": 5,
+  "open_set_signal": "vae_reconstruction_error",
+  "threshold": 0.23906713426113124,
+  "threshold_source": "95th_percentile_of_known_calibration_reconstruction_error",
+  "test_threshold_tuning": false,
+  "open_set": {
+    "locky_unknown": 14635,
+    "locky_known": 10427,
+    "unknown_detection_rate": 0.5839517995371478,
+    "unknown_false_accept_rate": 0.4160482004628521,
+    "known_unknown": 1937,
+    "known_accepted": 35258,
+    "known_rejection_rate": 0.05207689205538379,
+    "known_acceptance_rate": 0.9479231079446162
+  },
+  "known_closed_set_metrics": {
+    "accuracy": 0.9200430165344804,
+    "precision": 0.8807212803589146,
+    "recall": 0.9898666666666667,
+    "f1": 0.9321097566543396,
+    "fpr": 0.16686783343391673,
+    "specificity": 0.8331321665660832,
+    "confusion_matrix": [
+      [
+        13805,
+        2765
+      ],
+      [
+        209,
+        20416
+      ]
+    ]
+  },
+  "known_retained_metrics": {
+    "accuracy": 0.9220602416472857,
+    "precision": 0.8839002267573696,
+    "recall": 0.9904461835552394,
+    "f1": 0.9341449386503068,
+    "fpr": 0.1643132220795892,
+    "specificity": 0.8356867779204108,
+    "confusion_matrix": [
+      [
+        13020,
+        2560
+      ],
+      [
+        188,
+        19490
+      ]
+    ]
+  },
+  "locky_accepted_as_known": {
+    "benign": 1235,
+    "ransomware": 9192
+  },
+  "reconstruction_error": {
+    "known": {
+      "count": 37195,
+      "mean": 0.1252707111710498,
+      "std": 0.0757596830224613,
+      "min": 0.0032602818682789803,
+      "p25": 0.055065952241420746,
+      "median": 0.13585606217384338,
+      "p75": 0.18257559835910797,
+      "p90": 0.21835664212703704,
+      "p95": 0.24117410331964492,
+      "p99": 0.3084719753265381,
+      "max": 0.4251295030117035
+    },
+    "locky": {
+      "count": 25062,
+      "mean": 0.2711395070214824,
+      "std": 0.08599092612307595,
+      "min": 0.15595228970050812,
+      "p25": 0.19539105892181396,
+      "median": 0.27229318022727966,
+      "p75": 0.33858823776245117,
+      "p90": 0.3691202402114868,
+      "p95": 0.4136151611804961,
+      "p99": 0.5038756501674646,
+      "max": 0.6904901266098022
+    },
+    "roc_auc": 0.8981559532601118
+  },
+  "test_data_used": true,
+  "locky_data_used": true
+}

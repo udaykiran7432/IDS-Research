@@ -1,0 +1,72 @@
+{
+  "experiment": "Phase 8 VAE representation extraction",
+  "checkpoint": "/Volumes/Manohar/IDS-Research/artifacts/phase8/vae_family_heldout_seed_42.pt",
+  "device": "cpu",
+  "representation_columns": [
+    "latent_0",
+    "latent_1",
+    "latent_2",
+    "latent_3",
+    "reconstruction_error"
+  ],
+  "source_feature_columns": [
+    "Time",
+    "Protcol",
+    "Flag",
+    "Family",
+    "Clusters",
+    "Threats",
+    "USD",
+    "BTC"
+  ],
+  "splits": {
+    "train": {
+      "input_samples": 69428,
+      "output_samples": 69428,
+      "latent_shape": [
+        69428,
+        4
+      ],
+      "reconstruction_error": {
+        "mean": 0.12487022578716278,
+        "std": 0.07554641366004944,
+        "min": 0.0031853190157562494,
+        "p95": 0.24055534601211548,
+        "max": 0.45008325576782227
+      },
+      "output": "/Volumes/Manohar/IDS-Research/data/processed/phase8_integrated/train.csv"
+    },
+    "calibration": {
+      "input_samples": 17358,
+      "output_samples": 17358,
+      "latent_shape": [
+        17358,
+        4
+      ],
+      "reconstruction_error": {
+        "mean": 0.12466705590486526,
+        "std": 0.07537586987018585,
+        "min": 0.003192710690200329,
+        "p95": 0.23906713724136353,
+        "max": 0.4495159685611725
+      },
+      "output": "/Volumes/Manohar/IDS-Research/data/processed/phase8_integrated/calibration.csv"
+    },
+    "test": {
+      "input_samples": 62257,
+      "output_samples": 62257,
+      "latent_shape": [
+        62257,
+        4
+      ],
+      "reconstruction_error": {
+        "mean": 0.1839912384748459,
+        "std": 0.10734578967094421,
+        "min": 0.0032602818682789803,
+        "p95": 0.362438440322876,
+        "max": 0.6904901266098022
+      },
+      "output": "/Volumes/Manohar/IDS-Research/data/processed/phase8_integrated/test.csv"
+    }
+  }
+}

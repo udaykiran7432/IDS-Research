@@ -1,0 +1,18 @@
+{
+  "experiment": "Phase 8 VAE reconstruction-error open-set calibration",
+  "calibration_samples": 17358,
+  "selection_method": "95th percentile of known calibration reconstruction error",
+  "target_known_rejection_rate": 0.05,
+  "frozen_threshold": 0.23906713426113124,
+  "actual_calibration_rejection_rate": 0.050005761032377,
+  "calibration_error_statistics": {
+    "min": 0.003192710690200329,
+    "p50": 0.13607630878686905,
+    "p90": 0.21723761409521103,
+    "p95": 0.23906713426113124,
+    "p99": 0.30828597754240034,
+    "max": 0.4495159685611725
+  },
+  "test_data_used": false,
+  "locky_data_used": false
+}

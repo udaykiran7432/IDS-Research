@@ -1,0 +1,182 @@
+{
+  "experiment": "Phase 8 D3QN + PER + VAE pre-test evaluation",
+  "checkpoint": "artifacts/phase8/d3qn_per_vae_seed_42.pt",
+  "evaluation_device": "cpu",
+  "state_dimension": 5,
+  "feature_columns": [
+    "latent_0",
+    "latent_1",
+    "latent_2",
+    "latent_3",
+    "reconstruction_error"
+  ],
+  "frozen_vae_threshold": 0.23906713426113124,
+  "test_data_used": false,
+  "locky_data_used": false,
+  "splits_evaluated": [
+    "train",
+    "calibration"
+  ],
+  "splits": {
+    "train": {
+      "samples": 69428,
+      "binary_distribution": {
+        "benign": 30929,
+        "ransomware": 38499
+      },
+      "d3qn_predictions": {
+        "benign": 26215,
+        "ransomware": 43213
+      },
+      "binary_metrics": {
+        "confusion_matrix": {
+          "labels": [
+            "Benign",
+            "Ransomware"
+          ],
+          "matrix": [
+            [
+              25852,
+              5077
+            ],
+            [
+              363,
+              38136
+            ]
+          ],
+          "TN": 25852,
+          "FP": 5077,
+          "FN": 363,
+          "TP": 38136
+        },
+        "metrics": {
+          "accuracy": 0.921645445641528,
+          "precision": 0.882512206974753,
+          "recall_detection_rate": 0.9905711836671083,
+          "f1": 0.9334247111807323,
+          "false_positive_rate": 0.16415015034433703,
+          "specificity": 0.835849849655663
+        },
+        "classification_report": {
+          "Benign": {
+            "precision": 0.9861529658592408,
+            "recall": 0.835849849655663,
+            "f1-score": 0.9048019039619207,
+            "support": 30929.0
+          },
+          "Ransomware": {
+            "precision": 0.882512206974753,
+            "recall": 0.9905711836671083,
+            "f1-score": 0.9334247111807323,
+            "support": 38499.0
+          },
+          "accuracy": 0.921645445641528,
+          "macro avg": {
+            "precision": 0.9343325864169969,
+            "recall": 0.9132105166613856,
+            "f1-score": 0.9191133075713265,
+            "support": 69428.0
+          },
+          "weighted avg": {
+            "precision": 0.9286824125335812,
+            "recall": 0.921645445641528,
+            "f1-score": 0.9206737345650928,
+            "support": 69428.0
+          }
+        }
+      },
+      "vae_reconstruction_error": {
+        "min": 0.0031853190157562494,
+        "median": 0.13589464128017426,
+        "p95": 0.24055534601211548,
+        "max": 0.45008325576782227
+      },
+      "frozen_vae_threshold": 0.23906713426113124,
+      "vae_threshold_behavior": {
+        "rejected_as_unknown": 3588,
+        "accepted_as_known": 65840,
+        "rejection_rate": 0.051679437690845195
+      }
+    },
+    "calibration": {
+      "samples": 17358,
+      "binary_distribution": {
+        "benign": 7732,
+        "ransomware": 9626
+      },
+      "d3qn_predictions": {
+        "benign": 6566,
+        "ransomware": 10792
+      },
+      "binary_metrics": {
+        "confusion_matrix": {
+          "labels": [
+            "Benign",
+            "Ransomware"
+          ],
+          "matrix": [
+            [
+              6488,
+              1244
+            ],
+            [
+              78,
+              9548
+            ]
+          ],
+          "TN": 6488,
+          "FP": 1244,
+          "FN": 78,
+          "TP": 9548
+        },
+        "metrics": {
+          "accuracy": 0.9238391519760341,
+          "precision": 0.8847294292068199,
+          "recall_detection_rate": 0.9918969457718678,
+          "f1": 0.9352532079537663,
+          "false_positive_rate": 0.16088980858768753,
+          "specificity": 0.8391101914123125
+        },
+        "classification_report": {
+          "Benign": {
+            "precision": 0.9881206213828815,
+            "recall": 0.8391101914123125,
+            "f1-score": 0.9075395160162261,
+            "support": 7732.0
+          },
+          "Ransomware": {
+            "precision": 0.8847294292068199,
+            "recall": 0.9918969457718678,
+            "f1-score": 0.9352532079537663,
+            "support": 9626.0
+          },
+          "accuracy": 0.9238391519760341,
+          "macro avg": {
+            "precision": 0.9364250252948507,
+            "recall": 0.9155035685920901,
+            "f1-score": 0.9213963619849962,
+            "support": 17358.0
+          },
+          "weighted avg": {
+            "precision": 0.9307843144415998,
+            "recall": 0.9238391519760341,
+            "f1-score": 0.9229083372278152,
+            "support": 17358.0
+          }
+        }
+      },
+      "vae_reconstruction_error": {
+        "min": 0.003192710690200329,
+        "median": 0.13607630133628845,
+        "p95": 0.23906713724136353,
+        "max": 0.4495159685611725
+      },
+      "frozen_vae_threshold": 0.23906713426113124,
+      "vae_threshold_behavior": {
+        "rejected_as_unknown": 868,
+        "accepted_as_known": 16490,
+        "rejection_rate": 0.050005761032377
+      }
+    }
+  }
+}

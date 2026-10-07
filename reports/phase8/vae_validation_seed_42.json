@@ -1,0 +1,120 @@
+{
+  "experiment": "Phase 8 family-held-out VAE validation",
+  "checkpoint": "/Volumes/Manohar/IDS-Research/artifacts/phase8/vae_family_heldout_seed_42.pt",
+  "device": "cpu",
+  "model": {
+    "input_dim": 8,
+    "hidden_dim": 16,
+    "latent_dim": 4,
+    "beta": 1.0
+  },
+  "splits": {
+    "train": {
+      "samples": 69428,
+      "family_minus_one": 0,
+      "latent_shape": [
+        69428,
+        4
+      ],
+      "reconstruction_error": {
+        "count": 69428,
+        "mean": 0.12487022578716278,
+        "std": 0.07554641366004944,
+        "min": 0.0031853190157562494,
+        "p25": 0.05483263358473778,
+        "median": 0.13589464128017426,
+        "p75": 0.18068018555641174,
+        "p90": 0.21749866008758545,
+        "p95": 0.24055534601211548,
+        "p99": 0.3086235523223877,
+        "max": 0.45008325576782227
+      }
+    },
+    "calibration": {
+      "samples": 17358,
+      "family_minus_one": 0,
+      "latent_shape": [
+        17358,
+        4
+      ],
+      "reconstruction_error": {
+        "count": 17358,
+        "mean": 0.12466705590486526,
+        "std": 0.07537586987018585,
+        "min": 0.003192710690200329,
+        "p25": 0.0545172318816185,
+        "median": 0.13607630133628845,
+        "p75": 0.18066437542438507,
+        "p90": 0.21723762154579163,
+        "p95": 0.23906713724136353,
+        "p99": 0.30828598141670227,
+        "max": 0.4495159685611725
+      }
+    },
+    "test": {
+      "samples": 62257,
+      "known_samples": 37195,
+      "unseen_samples": 25062,
+      "latent_shape": [
+        62257,
+        4
+      ],
+      "reconstruction_error": {
+        "count": 62257,
+        "mean": 0.1839912384748459,
+        "std": 0.10734578967094421,
+        "min": 0.0032602818682789803,
+        "p25": 0.11141073703765869,
+        "median": 0.1724984347820282,
+        "p75": 0.2509070932865143,
+        "p90": 0.3399161398410797,
+        "p95": 0.362438440322876,
+        "p99": 0.4462677240371704,
+        "max": 0.6904901266098022
+      }
+    },
+    "test_known_only": {
+      "samples": 37195,
+      "reconstruction_error": {
+        "count": 37195,
+        "mean": 0.12527072429656982,
+        "std": 0.07575968652963638,
+        "min": 0.0032602818682789803,
+        "p25": 0.055065952241420746,
+        "median": 0.13585606217384338,
+        "p75": 0.18257559835910797,
+        "p90": 0.2183566391468048,
+        "p95": 0.2411741018295288,
+        "p99": 0.3084719777107239,
+        "max": 0.4251295030117035
+      }
+    },
+    "test_unseen_locky": {
+      "samples": 25062,
+      "reconstruction_error": {
+        "count": 25062,
+        "mean": 0.2711395025253296,
+        "std": 0.08599092066287994,
+        "min": 0.15595228970050812,
+        "p25": 0.19539105892181396,
+        "median": 0.27229318022727966,
+        "p75": 0.33858823776245117,
+        "p90": 0.3691202402114868,
+        "p95": 0.4136151671409607,
+        "p99": 0.5038756728172302,
+        "max": 0.6904901266098022
+      }
+    }
+  },
+  "numerical_checks": {
+    "train_latent_finite": true,
+    "calibration_latent_finite": true,
+    "test_latent_finite": true,
+    "train_error_finite": true,
+    "calibration_error_finite": true,
+    "test_error_finite": true,
+    "train_error_nonnegative": true,
+    "calibration_error_nonnegative": true,
+    "test_error_nonnegative": true
+  }
+}

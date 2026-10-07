@@ -1,0 +1,111 @@
+{
+  "experiment": "Phase 8 D3QN + PER + VAE representation",
+  "seed": 42,
+  "training_samples": 69428,
+  "state_dimension": 5,
+  "feature_columns": [
+    "latent_0",
+    "latent_1",
+    "latent_2",
+    "latent_3",
+    "reconstruction_error"
+  ],
+  "unseen_family_training_samples": 0,
+  "calibration_data_used": false,
+  "test_data_used": false,
+  "episodes": 10,
+  "max_steps_per_episode": 20000,
+  "checkpoint": "/Volumes/Manohar/IDS-Research/artifacts/phase8/d3qn_per_vae_seed_42.pt",
+  "episodes_results": [
+    {
+      "episode": 1,
+      "steps": 20000,
+      "total_reward": 8703.600000001023,
+      "mean_loss": 0.028730310569968682,
+      "epsilon": 0.1,
+      "replay_size": 20000,
+      "per_beta": 1.0
+    },
+    {
+      "episode": 2,
+      "steps": 20000,
+      "total_reward": 9233.20000000114,
+      "mean_loss": 0.0801948561831785,
+      "epsilon": 0.1,
+      "replay_size": 40000,
+      "per_beta": 1.0
+    },
+    {
+      "episode": 3,
+      "steps": 20000,
+      "total_reward": 9392.800000001193,
+      "mean_loss": 0.0919756502772274,
+      "epsilon": 0.1,
+      "replay_size": 60000,
+      "per_beta": 1.0
+    },
+    {
+      "episode": 4,
+      "steps": 20000,
+      "total_reward": 9541.00000000125,
+      "mean_loss": 0.08719978602211922,
+      "epsilon": 0.1,
+      "replay_size": 80000,
+      "per_beta": 1.0
+    },
+    {
+      "episode": 5,
+      "steps": 20000,
+      "total_reward": 9499.600000001248,
+      "mean_loss": 0.08209738635269459,
+      "epsilon": 0.1,
+      "replay_size": 100000,
+      "per_beta": 1.0
+    },
+    {
+      "episode": 6,
+      "steps": 20000,
+      "total_reward": 9682.200000001303,
+      "mean_loss": 0.0782587353056646,
+      "epsilon": 0.1,
+      "replay_size": 100000,
+      "per_beta": 1.0
+    },
+    {
+      "episode": 7,
+      "steps": 20000,
+      "total_reward": 9689.600000001286,
+      "mean_loss": 0.0766869168211415,
+      "epsilon": 0.1,
+      "replay_size": 100000,
+      "per_beta": 1.0
+    },
+    {
+      "episode": 8,
+      "steps": 20000,
+      "total_reward": 9535.000000001255,
+      "mean_loss": 0.07947439790067728,
+      "epsilon": 0.1,
+      "replay_size": 100000,
+      "per_beta": 1.0
+    },
+    {
+      "episode": 9,
+      "steps": 20000,
+      "total_reward": 9625.80000000129,
+      "mean_loss": 0.08676490203658468,
+      "epsilon": 0.1,
+      "replay_size": 100000,
+      "per_beta": 1.0
+    },
+    {
+      "episode": 10,
+      "steps": 20000,
+      "total_reward": 9649.400000001291,
+      "mean_loss": 0.07533667910540244,
+      "epsilon": 0.1,
+      "replay_size": 100000,
+      "per_beta": 1.0
+    }
+  ]
+}
