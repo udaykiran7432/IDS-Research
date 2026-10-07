@@ -1,0 +1,318 @@
+{
+  "experiment": "Phase 9 SHAP representative cases",
+  "seed": 42,
+  "shap_version": "0.52.0",
+  "checkpoint": "/Volumes/Manohar/IDS-Research/artifacts/phase8/d3qn_per_vae_seed_42.pt",
+  "feature_columns": [
+    "latent_0",
+    "latent_1",
+    "latent_2",
+    "latent_3",
+    "reconstruction_error"
+  ],
+  "background_source": "Phase 8 calibration representations",
+  "background_size": 100,
+  "nsamples": 100,
+  "explained_output": "D3QN ransomware Q-value (action 1)",
+  "open_set_signal": "VAE reconstruction error",
+  "frozen_threshold": 0.23906713426113124,
+  "test_threshold_tuning": false,
+  "model_retrained": false,
+  "cases": {
+    "known_benign_correct": {
+      "test_index": 31522,
+      "family": "SamSam",
+      "true_binary_label": 0,
+      "dqn_prediction": 0,
+      "final_prediction": 0,
+      "open_set_decision": "KNOWN",
+      "q_value_benign": 4.7448859214782715,
+      "q_value_ransomware": 4.261682033538818,
+      "q_margin": 0.4832038879394531,
+      "reconstruction_error": 0.1196422204375267,
+      "threshold": 0.23906713426113124,
+      "features": {
+        "latent_0": -0.8435261249542236,
+        "latent_1": -0.004386670887470245,
+        "latent_2": -1.065194845199585,
+        "latent_3": -1.2704806327819824,
+        "reconstruction_error": 0.1196422204375267
+      },
+      "shap_ransomware_q_value": {
+        "latent_0": -0.04089114594459593,
+        "latent_1": -0.192168951213361,
+        "latent_2": -0.47640776393811096,
+        "latent_3": -0.021438335061073316,
+        "reconstruction_error": -0.003907310446103374
+      },
+      "shap_feature_ranking": [
+        {
+          "feature": "latent_2",
+          "value": -1.065194845199585,
+          "shap_value": -0.47640776393811096,
+          "absolute_shap_value": 0.47640776393811096
+        },
+        {
+          "feature": "latent_1",
+          "value": -0.004386670887470245,
+          "shap_value": -0.192168951213361,
+          "absolute_shap_value": 0.192168951213361
+        },
+        {
+          "feature": "latent_0",
+          "value": -0.8435261249542236,
+          "shap_value": -0.04089114594459593,
+          "absolute_shap_value": 0.04089114594459593
+        },
+        {
+          "feature": "latent_3",
+          "value": -1.2704806327819824,
+          "shap_value": -0.021438335061073316,
+          "absolute_shap_value": 0.021438335061073316
+        },
+        {
+          "feature": "reconstruction_error",
+          "value": 0.1196422204375267,
+          "shap_value": -0.003907310446103374,
+          "absolute_shap_value": 0.003907310446103374
+        }
+      ]
+    },
+    "known_ransomware_correct": {
+      "test_index": 28848,
+      "family": "SamSam",
+      "true_binary_label": 1,
+      "dqn_prediction": 1,
+      "final_prediction": 1,
+      "open_set_decision": "KNOWN",
+      "q_value_benign": 4.221382141113281,
+      "q_value_ransomware": 5.232690811157227,
+      "q_margin": 1.0113086700439453,
+      "reconstruction_error": 0.13412536680698395,
+      "threshold": 0.23906713426113124,
+      "features": {
+        "latent_0": -0.9027022123336792,
+        "latent_1": -0.0055838897824287415,
+        "latent_2": 0.248212069272995,
+        "latent_3": -0.9501789212226868,
+        "reconstruction_error": 0.13412536680698395
+      },
+      "shap_ransomware_q_value": {
+        "latent_0": -0.002524800300598845,
+        "latent_1": -0.3266427514950453,
+        "latent_2": 0.35321068326632127,
+        "latent_3": 0.020859174927075144,
+        "reconstruction_error": 0.1912939182917277
+      },
+      "shap_feature_ranking": [
+        {
+          "feature": "latent_2",
+          "value": 0.248212069272995,
+          "shap_value": 0.35321068326632127,
+          "absolute_shap_value": 0.35321068326632127
+        },
+        {
+          "feature": "latent_1",
+          "value": -0.0055838897824287415,
+          "shap_value": -0.3266427514950453,
+          "absolute_shap_value": 0.3266427514950453
+        },
+        {
+          "feature": "reconstruction_error",
+          "value": 0.13412536680698395,
+          "shap_value": 0.1912939182917277,
+          "absolute_shap_value": 0.1912939182917277
+        },
+        {
+          "feature": "latent_3",
+          "value": -0.9501789212226868,
+          "shap_value": 0.020859174927075144,
+          "absolute_shap_value": 0.020859174927075144
+        },
+        {
+          "feature": "latent_0",
+          "value": -0.9027022123336792,
+          "shap_value": -0.002524800300598845,
+          "absolute_shap_value": 0.002524800300598845
+        }
+      ]
+    },
+    "locky_correctly_unknown": {
+      "test_index": 47740,
+      "family": "Locky",
+      "true_binary_label": 1,
+      "dqn_prediction": 1,
+      "final_prediction": -1,
+      "open_set_decision": "UNKNOWN",
+      "q_value_benign": 3.9504544734954834,
+      "q_value_ransomware": 4.843097686767578,
+      "q_margin": 0.8926432132720947,
+      "reconstruction_error": 0.314473956823349,
+      "threshold": 0.23906713426113124,
+      "features": {
+        "latent_0": 2.007660388946533,
+        "latent_1": -0.04208580404520035,
+        "latent_2": -0.4599073529243469,
+        "latent_3": -0.6946561336517334,
+        "reconstruction_error": 0.314473956823349
+      },
+      "shap_ransomware_q_value": {
+        "latent_0": 0.1464054962396624,
+        "latent_1": 0.7161598073840135,
+        "latent_2": 0.16698700124025326,
+        "latent_3": -0.1644742268919958,
+        "reconstruction_error": -1.0184759313464182
+      },
+      "shap_feature_ranking": [
+        {
+          "feature": "reconstruction_error",
+          "value": 0.314473956823349,
+          "shap_value": -1.0184759313464182,
+          "absolute_shap_value": 1.0184759313464182
+        },
+        {
+          "feature": "latent_1",
+          "value": -0.04208580404520035,
+          "shap_value": 0.7161598073840135,
+          "absolute_shap_value": 0.7161598073840135
+        },
+        {
+          "feature": "latent_2",
+          "value": -0.4599073529243469,
+          "shap_value": 0.16698700124025326,
+          "absolute_shap_value": 0.16698700124025326
+        },
+        {
+          "feature": "latent_3",
+          "value": -0.6946561336517334,
+          "shap_value": -0.1644742268919958,
+          "absolute_shap_value": 0.1644742268919958
+        },
+        {
+          "feature": "latent_0",
+          "value": 2.007660388946533,
+          "shap_value": 0.1464054962396624,
+          "absolute_shap_value": 0.1464054962396624
+        }
+      ]
+    },
+    "locky_false_accept": {
+      "test_index": 37917,
+      "family": "Locky",
+      "true_binary_label": 0,
+      "dqn_prediction": 1,
+      "final_prediction": 1,
+      "open_set_decision": "KNOWN",
+      "q_value_benign": 4.258915424346924,
+      "q_value_ransomware": 5.5651116371154785,
+      "q_margin": 1.3061962127685547,
+      "reconstruction_error": 0.1914321631193161,
+      "threshold": 0.23906713426113124,
+      "features": {
+        "latent_0": 1.9250597953796387,
+        "latent_1": -0.020298458635807037,
+        "latent_2": 0.6916902661323547,
+        "latent_3": -0.9669174551963806,
+        "reconstruction_error": 0.1914321631193161
+      },
+      "shap_ransomware_q_value": {
+        "latent_0": 0.06925978040695054,
+        "latent_1": 0.04494873817761798,
+        "latent_2": 0.32816268151998523,
+        "latent_3": 0.1329918904701848,
+        "reconstruction_error": -0.006746516764164934
+      },
+      "shap_feature_ranking": [
+        {
+          "feature": "latent_2",
+          "value": 0.6916902661323547,
+          "shap_value": 0.32816268151998523,
+          "absolute_shap_value": 0.32816268151998523
+        },
+        {
+          "feature": "latent_3",
+          "value": -0.9669174551963806,
+          "shap_value": 0.1329918904701848,
+          "absolute_shap_value": 0.1329918904701848
+        },
+        {
+          "feature": "latent_0",
+          "value": 1.9250597953796387,
+          "shap_value": 0.06925978040695054,
+          "absolute_shap_value": 0.06925978040695054
+        },
+        {
+          "feature": "latent_1",
+          "value": -0.020298458635807037,
+          "shap_value": 0.04494873817761798,
+          "absolute_shap_value": 0.04494873817761798
+        },
+        {
+          "feature": "reconstruction_error",
+          "value": 0.1914321631193161,
+          "shap_value": -0.006746516764164934,
+          "absolute_shap_value": 0.006746516764164934
+        }
+      ]
+    },
+    "known_misclassification": {
+      "test_index": 2959,
+      "family": "CryptXXX",
+      "true_binary_label": 0,
+      "dqn_prediction": 1,
+      "final_prediction": 1,
+      "open_set_decision": "KNOWN",
+      "q_value_benign": 4.296663761138916,
+      "q_value_ransomware": 4.544490337371826,
+      "q_margin": 0.24782657623291016,
+      "reconstruction_error": 0.1562301367521286,
+      "threshold": 0.23906713426113124,
+      "features": {
+        "latent_0": 1.5131555795669556,
+        "latent_1": -0.01420951634645462,
+        "latent_2": 1.0831098556518555,
+        "latent_3": 0.811129093170166,
+        "reconstruction_error": 0.1562301367521286
+      },
+      "shap_ransomware_q_value": {
+        "latent_0": -0.22918268907070224,
+        "latent_1": -0.12665768194198793,
+        "latent_2": 0.2625856186151505,
+        "latent_3": -0.20061016209920313,
+        "reconstruction_error": -0.15814028827349405
+      },
+      "shap_feature_ranking": [
+        {
+          "feature": "latent_2",
+          "value": 1.0831098556518555,
+          "shap_value": 0.2625856186151505,
+          "absolute_shap_value": 0.2625856186151505
+        },
+        {
+          "feature": "latent_0",
+          "value": 1.5131555795669556,
+          "shap_value": -0.22918268907070224,
+          "absolute_shap_value": 0.22918268907070224
+        },
+        {
+          "feature": "latent_3",
+          "value": 0.811129093170166,
+          "shap_value": -0.20061016209920313,
+          "absolute_shap_value": 0.20061016209920313
+        },
+        {
+          "feature": "reconstruction_error",
+          "value": 0.1562301367521286,
+          "shap_value": -0.15814028827349405,
+          "absolute_shap_value": 0.15814028827349405
+        },
+        {
+          "feature": "latent_1",
+          "value": -0.01420951634645462,
+          "shap_value": -0.12665768194198793,
+          "absolute_shap_value": 0.12665768194198793
+        }
+      ]
+    }
+  }
+}

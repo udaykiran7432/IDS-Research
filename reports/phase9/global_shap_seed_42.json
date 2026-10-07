@@ -1,0 +1,203 @@
+{
+  "experiment": "Phase 9 global SHAP analysis",
+  "seed": 42,
+  "shap_version": "0.52.0",
+  "checkpoint": "/Volumes/Manohar/IDS-Research/artifacts/phase8/d3qn_per_vae_seed_42.pt",
+  "feature_columns": [
+    "latent_0",
+    "latent_1",
+    "latent_2",
+    "latent_3",
+    "reconstruction_error"
+  ],
+  "background_size": 100,
+  "explanation_samples": 100,
+  "nsamples": 100,
+  "explained_output": "D3QN ransomware Q-value (action 1)",
+  "open_set_signal": "VAE reconstruction error",
+  "frozen_threshold": 0.23906713426113124,
+  "threshold_tuning_performed": false,
+  "model_retrained": false,
+  "global_mean_absolute_shap": [
+    {
+      "feature": "reconstruction_error",
+      "mean_absolute_shap": 0.4297992857311174
+    },
+    {
+      "feature": "latent_3",
+      "mean_absolute_shap": 0.31460365406860924
+    },
+    {
+      "feature": "latent_2",
+      "mean_absolute_shap": 0.2954521421484649
+    },
+    {
+      "feature": "latent_0",
+      "mean_absolute_shap": 0.2337376872602102
+    },
+    {
+      "feature": "latent_1",
+      "mean_absolute_shap": 0.19200935244902972
+    }
+  ],
+  "group_mean_absolute_shap": {
+    "known_benign": {
+      "count": 31,
+      "features": [
+        {
+          "feature": "latent_2",
+          "mean_absolute_shap": 0.33270905412845747
+        },
+        {
+          "feature": "latent_3",
+          "mean_absolute_shap": 0.3186374538175528
+        },
+        {
+          "feature": "latent_1",
+          "mean_absolute_shap": 0.21208352239862566
+        },
+        {
+          "feature": "reconstruction_error",
+          "mean_absolute_shap": 0.1540827033192886
+        },
+        {
+          "feature": "latent_0",
+          "mean_absolute_shap": 0.07518140820469912
+        }
+      ]
+    },
+    "known_ransomware": {
+      "count": 34,
+      "features": [
+        {
+          "feature": "latent_3",
+          "mean_absolute_shap": 0.2779179321273281
+        },
+        {
+          "feature": "latent_2",
+          "mean_absolute_shap": 0.2498490580194721
+        },
+        {
+          "feature": "reconstruction_error",
+          "mean_absolute_shap": 0.2178270272399278
+        },
+        {
+          "feature": "latent_0",
+          "mean_absolute_shap": 0.15321582270252895
+        },
+        {
+          "feature": "latent_1",
+          "mean_absolute_shap": 0.1394240717458375
+        }
+      ]
+    },
+    "locky": {
+      "count": 35,
+      "features": [
+        {
+          "feature": "reconstruction_error",
+          "mean_absolute_shap": 0.8799213098301785
+        },
+        {
+          "feature": "latent_0",
+          "mean_absolute_shap": 0.45239448856541054
+        },
+        {
+          "feature": "latent_3",
+          "mean_absolute_shap": 0.34666841846250374
+        },
+        {
+          "feature": "latent_2",
+          "mean_absolute_shap": 0.30675330183435034
+        },
+        {
+          "feature": "latent_1",
+          "mean_absolute_shap": 0.22531221746248853
+        }
+      ]
+    },
+    "unknown_decisions": {
+      "count": 28,
+      "features": [
+        {
+          "feature": "reconstruction_error",
+          "mean_absolute_shap": 1.1055710116809334
+        },
+        {
+          "feature": "latent_0",
+          "mean_absolute_shap": 0.5413423290068191
+        },
+        {
+          "feature": "latent_3",
+          "mean_absolute_shap": 0.4980605933205006
+        },
+        {
+          "feature": "latent_2",
+          "mean_absolute_shap": 0.4079815502849718
+        },
+        {
+          "feature": "latent_1",
+          "mean_absolute_shap": 0.23016807509266882
+        }
+      ]
+    },
+    "known_decisions": {
+      "count": 72,
+      "features": [
+        {
+          "feature": "latent_2",
+          "mean_absolute_shap": 0.25169070565093454
+        },
+        {
+          "feature": "latent_3",
+          "mean_absolute_shap": 0.2432592888039847
+        },
+        {
+          "feature": "latent_1",
+          "mean_absolute_shap": 0.17716984919872564
+        },
+        {
+          "feature": "reconstruction_error",
+          "mean_absolute_shap": 0.16699917008396667
+        },
+        {
+          "feature": "latent_0",
+          "mean_absolute_shap": 0.11411365991430686
+        }
+      ]
+    }
+  },
+  "directional_statistics": [
+    {
+      "feature": "latent_0",
+      "mean_signed_shap": 0.18176674763113188,
+      "positive_fraction": 0.7,
+      "negative_fraction": 0.3
+    },
+    {
+      "feature": "latent_1",
+      "mean_signed_shap": 0.05720005790417329,
+      "positive_fraction": 0.57,
+      "negative_fraction": 0.43
+    },
+    {
+      "feature": "latent_2",
+      "mean_signed_shap": 0.035290970658013655,
+      "positive_fraction": 0.57,
+      "negative_fraction": 0.43
+    },
+    {
+      "feature": "latent_3",
+      "mean_signed_shap": -0.07497157833725292,
+      "positive_fraction": 0.49,
+      "negative_fraction": 0.51
+    },
+    {
+      "feature": "reconstruction_error",
+      "mean_signed_shap": -0.3443553559333095,
+      "positive_fraction": 0.31,
+      "negative_fraction": 0.69
+    }
+  ],
+  "figure": "/Volumes/Manohar/IDS-Research/reports/phase9/figures/global_shap_importance.png"
+}
