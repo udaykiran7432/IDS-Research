@@ -1,0 +1,25 @@
+{
+  "experiment": "Phase 6 VAE",
+  "seed": 42,
+  "device": "cpu",
+  "train_samples": 104330,
+  "test_samples": 44713,
+  "input_dim": 8,
+  "hidden_dim": 16,
+  "latent_dim": 4,
+  "beta": 1.0,
+  "batch_size": 256,
+  "epochs": 50,
+  "learning_rate": 0.001,
+  "checkpoint": "/Volumes/Manohar/IDS-Research/artifacts/phase6/vae_seed_42.pt",
+  "final_train": {
+    "loss": 1.2711068658555422,
+    "reconstruction_loss": 0.44147796266535766,
+    "kl_loss": 0.8296289028582541
+  },
+  "final_test": {
+    "loss": 1.2736795186420582,
+    "reconstruction_loss": 0.4425212440748694,
+    "kl_loss": 0.831158273714037
+  }
+}
