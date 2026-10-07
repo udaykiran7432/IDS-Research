@@ -1,0 +1,125 @@
+{
+  "experiment": "Phase 7 family-held-out open-set split",
+  "random_state": 42,
+  "unseen_family": "Locky",
+  "unseen_family_source_samples": 25062,
+  "test_size_known_families": 0.3,
+  "calibration_size_from_known_training": 0.2,
+  "feature_columns": [
+    "Time",
+    "Protcol",
+    "Flag",
+    "Family",
+    "Clusters",
+    "Threats",
+    "USD",
+    "BTC"
+  ],
+  "categorical_columns": [
+    "Protcol",
+    "Flag",
+    "Family",
+    "Threats"
+  ],
+  "numerical_columns": [
+    "Time",
+    "Clusters",
+    "USD",
+    "BTC"
+  ],
+  "preprocessing": {
+    "categorical": "OrdinalEncoder fitted only on Phase 7 training data; unknown categories mapped to -1.",
+    "numerical": "MinMaxScaler fitted only on Phase 7 training data."
+  },
+  "splits": {
+    "train": {
+      "samples": 69428,
+      "unseen_family_samples": 0,
+      "families": {
+        "APT": 5455,
+        "CryptXXX": 5212,
+        "CryptoLocker": 437,
+        "CryptoLocker2015": 81,
+        "Cryptohitman": 2321,
+        "DMALocker": 6407,
+        "EDA2": 3438,
+        "Flyper": 6770,
+        "Globe": 4132,
+        "Globev3": 38,
+        "JigSaw": 7687,
+        "NoobCrypt": 702,
+        "Razy": 4365,
+        "SamSam": 10973,
+        "TowerWeb": 2424,
+        "WannaCry": 8986
+      },
+      "targets": {
+        "A": 20222,
+        "S": 30929,
+        "SS": 18277
+      }
+    },
+    "calibration": {
+      "samples": 17358,
+      "unseen_family_samples": 0,
+      "families": {
+        "APT": 1364,
+        "CryptXXX": 1303,
+        "CryptoLocker": 108,
+        "CryptoLocker2015": 20,
+        "Cryptohitman": 580,
+        "DMALocker": 1601,
+        "EDA2": 861,
+        "Flyper": 1693,
+        "Globe": 1033,
+        "Globev3": 10,
+        "JigSaw": 1921,
+        "NoobCrypt": 175,
+        "Razy": 1091,
+        "SamSam": 2745,
+        "TowerWeb": 607,
+        "WannaCry": 2246
+      },
+      "targets": {
+        "A": 5055,
+        "S": 7732,
+        "SS": 4571
+      }
+    },
+    "test": {
+      "samples": 62257,
+      "unseen_family_samples": 25062,
+      "known_family_samples": 37195,
+      "families": {
+        "APT": 2911,
+        "CryptXXX": 2820,
+        "CryptoLocker": 243,
+        "CryptoLocker2015": 49,
+        "Cryptohitman": 1233,
+        "DMALocker": 3352,
+        "EDA2": 1755,
+        "Flyper": 3551,
+        "Globe": 2208,
+        "Globev3": 25,
+        "JigSaw": 4104,
+        "Locky": 25062,
+        "NoobCrypt": 371,
+        "Razy": 2406,
+        "SamSam": 5939,
+        "TowerWeb": 1350,
+        "WannaCry": 4878
+      },
+      "targets": {
+        "A": 17284,
+        "S": 27719,
+        "SS": 17254
+      }
+    }
+  },
+  "checks": {
+    "unseen_absent_from_train": true,
+    "unseen_absent_from_calibration": true,
+    "unseen_present_in_test": true,
+    "preprocessing_fitted_only_on_train": true
+  }
+}

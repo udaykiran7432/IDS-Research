@@ -1,0 +1,61 @@
+{
+  "experiment": "phase7_open_set_threshold_sweep",
+  "seed": 42,
+  "calibration_samples": 17358,
+  "calibration_accuracy": 0.961919575988017,
+  "score": "absolute_q_value_margin",
+  "unknown_rule": "margin < threshold",
+  "candidate_percentiles": [
+    1.0,
+    2.5,
+    5.0,
+    10.0
+  ],
+  "results": [
+    {
+      "percentile": 1.0,
+      "threshold": 0.0990447998046875,
+      "rejected_samples": 173,
+      "known_rejection_rate": 0.009966586012213388,
+      "correct_predictions_rejected": 112,
+      "incorrect_predictions_rejected": 61,
+      "incorrect_capture_rate": 0.09228441754916793,
+      "remaining_known_samples": 17185,
+      "remaining_known_accuracy": 0.9650858306662787
+    },
+    {
+      "percentile": 2.5,
+      "threshold": 0.214224174618721,
+      "rejected_samples": 434,
+      "known_rejection_rate": 0.0250028805161885,
+      "correct_predictions_rejected": 293,
+      "incorrect_predictions_rejected": 141,
+      "incorrect_capture_rate": 0.21331316187594554,
+      "remaining_known_samples": 16924,
+      "remaining_known_accuracy": 0.9692744032143701
+    },
+    {
+      "percentile": 5.0,
+      "threshold": 0.3517799377441406,
+      "rejected_samples": 865,
+      "known_rejection_rate": 0.04983293006106694,
+      "correct_predictions_rejected": 636,
+      "incorrect_predictions_rejected": 229,
+      "incorrect_capture_rate": 0.3464447806354009,
+      "remaining_known_samples": 16493,
+      "remaining_known_accuracy": 0.9738070696659189
+    },
+    {
+      "percentile": 10.0,
+      "threshold": 0.47896814346313477,
+      "rejected_samples": 1736,
+      "known_rejection_rate": 0.100011522064754,
+      "correct_predictions_rejected": 1431,
+      "incorrect_predictions_rejected": 305,
+      "incorrect_capture_rate": 0.46142208774583965,
+      "remaining_known_samples": 15622,
+      "remaining_known_accuracy": 0.9772116246319293
+    }
+  ],
+  "locky_test_used_for_calibration": false
+}

@@ -1,0 +1,76 @@
+{
+  "experiment": "phase7_family_held_out_open_set",
+  "seed": 42,
+  "unseen_family": "Locky",
+  "threshold": 0.3517799377441406,
+  "threshold_selection": "5th percentile of known-family calibration Q-value margin; Locky test not used.",
+  "test_population": {
+    "total": 62257,
+    "known": 37195,
+    "unseen_locky": 25062
+  },
+  "open_set_detection": {
+    "unknown_detection_rate": 0.13733939829223527,
+    "unknown_false_accept_rate": 0.8626606017077647,
+    "known_rejection_rate": 0.04981852399516064,
+    "known_acceptance_rate": 0.9501814760048394
+  },
+  "known_closed_set_metrics": {
+    "accuracy": 0.9591611775776314,
+    "precision": 0.9376087952359139,
+    "recall": 0.9923878787878788,
+    "f1": 0.9642209398186314,
+    "fpr": 0.08219674109837055,
+    "specificity": 0.9178032589016295,
+    "confusion_matrix": [
+      [
+        15208,
+        1362
+      ],
+      [
+        157,
+        20468
+      ]
+    ]
+  },
+  "known_retained_as_known_metrics": {
+    "accuracy": 0.9713655141191783,
+    "precision": 0.955436468763221,
+    "recall": 0.9968610525283241,
+    "f1": 0.9757092794392972,
+    "fpr": 0.06339864910051494,
+    "specificity": 0.936601350899485,
+    "confusion_matrix": [
+      [
+        14005,
+        948
+      ],
+      [
+        64,
+        20325
+      ]
+    ]
+  },
+  "locky": {
+    "samples": 25062,
+    "binary_benign": 11149,
+    "binary_ransomware": 13913,
+    "unknown_detected": 3442,
+    "accepted_as_known": 21620,
+    "unknown_detection_rate": 0.13733939829223527,
+    "false_accept_rate": 0.8626606017077647,
+    "q_margin": {
+      "min": 0.00016689300537109375,
+      "p05": 0.13228130340576172,
+      "p25": 0.6758384704589844,
+      "median": 1.5754376649856567,
+      "p75": 2.024259567260742,
+      "p95": 2.6763861179351807,
+      "max": 5.414715766906738
+    },
+    "accepted_known_binary_prediction": {
+      "benign": 6850,
+      "ransomware": 14770
+    }
+  }
+}

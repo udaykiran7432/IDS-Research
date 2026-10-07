@@ -1,0 +1,123 @@
+{
+  "experiment": "Phase 7 calibration-only open-set score comparison",
+  "seed": 42,
+  "calibration_samples": 17358,
+  "calibration_benign": 7732,
+  "calibration_ransomware": 9626,
+  "calibration_errors": 661,
+  "calibration_accuracy": 0.961919575988017,
+  "fixed_rejection_rate": 0.05,
+  "scores": {
+    "q_margin": {
+      "interpretation": "higher = more uncertain",
+      "roc_auc_for_error_detection": 0.7680056487812452,
+      "threshold": -0.3517799377441406,
+      "rejected_count": 874,
+      "rejection_rate": 0.05035142297499712,
+      "incorrect_predictions": 661,
+      "incorrect_predictions_captured": 229,
+      "incorrect_capture_rate": 0.3464447806354009,
+      "correct_predictions_rejected": 645,
+      "remaining_count": 16484,
+      "remaining_accuracy": 0.9737927687454502,
+      "score_statistics": {
+        "min": -3.4683587551116943,
+        "p05": -2.1677558422088623,
+        "median": -1.5219883918762207,
+        "p95": -0.3517799377441406,
+        "max": -0.0002079010009765625
+      }
+    },
+    "negative_max_q": {
+      "interpretation": "higher = more uncertain",
+      "roc_auc_for_error_detection": 0.704879585115755,
+      "threshold": -4.726447105407715,
+      "rejected_count": 868,
+      "rejection_rate": 0.050005761032377,
+      "incorrect_predictions": 661,
+      "incorrect_predictions_captured": 135,
+      "incorrect_capture_rate": 0.2042360060514372,
+      "correct_predictions_rejected": 733,
+      "remaining_count": 16490,
+      "remaining_accuracy": 0.9681018799272286,
+      "score_statistics": {
+        "min": -6.699420928955078,
+        "p05": -6.005614280700684,
+        "median": -5.5423359870910645,
+        "p95": -4.726447105407715,
+        "max": -3.571711778640747
+      }
+    },
+    "q_entropy": {
+      "interpretation": "higher = more uncertain",
+      "roc_auc_for_error_detection": 0.7680059659045348,
+      "threshold": 0.677914559841156,
+      "rejected_count": 874,
+      "rejection_rate": 0.05035142297499712,
+      "incorrect_predictions": 661,
+      "incorrect_predictions_captured": 229,
+      "incorrect_capture_rate": 0.3464447806354009,
+      "correct_predictions_rejected": 645,
+      "remaining_count": 16484,
+      "remaining_accuracy": 0.9737927687454502,
+      "score_statistics": {
+        "min": 0.13552701473236084,
+        "p05": 0.33093976974487305,
+        "median": 0.47013092041015625,
+        "p95": 0.677914559841156,
+        "max": 0.6931471824645996
+      }
+    },
+    "q_energy": {
+      "interpretation": "higher = more uncertain",
+      "roc_auc_for_error_detection": 0.6490114315697322,
+      "threshold": -5.173858642578125,
+      "rejected_count": 868,
+      "rejection_rate": 0.050005761032377,
+      "incorrect_predictions": 661,
+      "incorrect_predictions_captured": 84,
+      "incorrect_capture_rate": 0.12708018154311648,
+      "correct_predictions_rejected": 784,
+      "remaining_count": 16490,
+      "remaining_accuracy": 0.965009096422074,
+      "score_statistics": {
+        "min": -6.877455234527588,
+        "p05": -6.131280899047852,
+        "median": -5.739974021911621,
+        "p95": -5.173858642578125,
+        "max": -3.983893394470215
+      }
+    },
+    "negative_normalized_margin": {
+      "interpretation": "higher = more uncertain",
+      "roc_auc_for_error_detection": 0.7662146723522946,
+      "threshold": -0.03738037124276161,
+      "rejected_count": 869,
+      "rejection_rate": 0.050063371356147024,
+      "incorrect_predictions": 661,
+      "incorrect_predictions_captured": 226,
+      "incorrect_capture_rate": 0.34190620272314676,
+      "correct_predictions_rejected": 643,
+      "remaining_count": 16489,
+      "remaining_accuracy": 0.9736187761537995,
+      "score_statistics": {
+        "min": -0.3924579322338104,
+        "p05": -0.22773200273513794,
+        "median": -0.15752223134040833,
+        "p95": -0.03738037124276161,
+        "max": -2.1583859052043408e-05
+      }
+    }
+  },
+  "selection": {
+    "criterion": "highest incorrect-prediction capture rate at exactly 5% calibration rejection; ROC-AUC used as tie-break",
+    "selected_score": "q_entropy",
+    "ranking": [
+      "q_entropy",
+      "q_margin",
+      "negative_normalized_margin",
+      "negative_max_q",
+      "q_energy"
+    ]
+  }
+}

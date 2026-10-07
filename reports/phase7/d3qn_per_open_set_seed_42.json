@@ -1,0 +1,157 @@
+{
+  "experiment": "phase7_d3qn_per_family_held_out",
+  "method": "Dueling Double Deep Q-Network + Prioritized Experience Replay",
+  "seed": 42,
+  "device": "cpu",
+  "training_dataset": "data/processed/phase7_open_set/train.csv",
+  "state_dimension": 8,
+  "action_dimension": 2,
+  "training_samples": 69428,
+  "benign_samples": 30929,
+  "ransomware_samples": 38499,
+  "unseen_family": "Locky",
+  "unseen_family_training_samples": 0,
+  "episodes": 10,
+  "steps_per_episode": 20000,
+  "total_steps": 200000,
+  "replay_capacity": 100000,
+  "batch_size": 64,
+  "learning_rate": 0.001,
+  "gamma": 0.99,
+  "epsilon_start": 1.0,
+  "epsilon_end": 0.1,
+  "epsilon_decay": 0.995,
+  "epsilon_decay_frequency": "every_step",
+  "target_update": "end_of_episode",
+  "loss": "importance_sampling_weighted_MSE",
+  "optimizer": "Adam",
+  "state_transition": "sequential_training_data",
+  "architecture": {
+    "type": "dueling_dqn",
+    "feature_layers": [
+      64,
+      64
+    ],
+    "value_stream": [
+      64,
+      1
+    ],
+    "advantage_stream": [
+      64,
+      2
+    ]
+  },
+  "target_rule": "double_dqn",
+  "prioritized_replay": {
+    "enabled": true,
+    "alpha": 0.6,
+    "beta_start": 0.4,
+    "beta_increment": 0.001,
+    "priority_epsilon": 1e-06,
+    "priority_source": "absolute_td_error",
+    "new_transition_priority": "maximum_current_priority"
+  },
+  "history": [
+    {
+      "episode": 1,
+      "steps_completed": 20000,
+      "total_steps": 20000,
+      "episode_reward": 9431.40000000128,
+      "mean_loss": 0.02092227124809342,
+      "epsilon": 0.1,
+      "replay_size": 20000,
+      "per_beta": 1.0
+    },
+    {
+      "episode": 2,
+      "steps_completed": 20000,
+      "total_steps": 40000,
+      "episode_reward": 9963.400000001433,
+      "mean_loss": 0.07055953856590204,
+      "epsilon": 0.1,
+      "replay_size": 40000,
+      "per_beta": 1.0
+    },
+    {
+      "episode": 3,
+      "steps_completed": 20000,
+      "total_steps": 60000,
+      "episode_reward": 10036.800000001447,
+      "mean_loss": 0.07836887070804369,
+      "epsilon": 0.1,
+      "replay_size": 60000,
+      "per_beta": 1.0
+    },
+    {
+      "episode": 4,
+      "steps_completed": 20000,
+      "total_steps": 80000,
+      "episode_reward": 10122.600000001477,
+      "mean_loss": 0.07229677259837626,
+      "epsilon": 0.1,
+      "replay_size": 80000,
+      "per_beta": 1.0
+    },
+    {
+      "episode": 5,
+      "steps_completed": 20000,
+      "total_steps": 100000,
+      "episode_reward": 10101.000000001475,
+      "mean_loss": 0.06833959557097988,
+      "epsilon": 0.1,
+      "replay_size": 100000,
+      "per_beta": 1.0
+    },
+    {
+      "episode": 6,
+      "steps_completed": 20000,
+      "total_steps": 120000,
+      "episode_reward": 10224.80000000151,
+      "mean_loss": 0.06631196498636854,
+      "epsilon": 0.1,
+      "replay_size": 100000,
+      "per_beta": 1.0
+    },
+    {
+      "episode": 7,
+      "steps_completed": 20000,
+      "total_steps": 140000,
+      "episode_reward": 10207.400000001486,
+      "mean_loss": 0.07786735813188715,
+      "epsilon": 0.1,
+      "replay_size": 100000,
+      "per_beta": 1.0
+    },
+    {
+      "episode": 8,
+      "steps_completed": 20000,
+      "total_steps": 160000,
+      "episode_reward": 10043.60000000146,
+      "mean_loss": 0.07222033923247363,
+      "epsilon": 0.1,
+      "replay_size": 100000,
+      "per_beta": 1.0
+    },
+    {
+      "episode": 9,
+      "steps_completed": 20000,
+      "total_steps": 180000,
+      "episode_reward": 10186.000000001508,
+      "mean_loss": 0.06528399795879378,
+      "epsilon": 0.1,
+      "replay_size": 100000,
+      "per_beta": 1.0
+    },
+    {
+      "episode": 10,
+      "steps_completed": 20000,
+      "total_steps": 200000,
+      "episode_reward": 10177.600000001488,
+      "mean_loss": 0.07282235975447111,
+      "epsilon": 0.1,
+      "replay_size": 100000,
+      "per_beta": 1.0
+    }
+  ],
+  "checkpoint": "artifacts/phase7/d3qn_per_open_set_seed_42.pt"
+}
