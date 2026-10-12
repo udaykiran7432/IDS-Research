@@ -1,0 +1,48 @@
+{
+  "experiment": "phase10_d3qn_per_no_family_open_set",
+  "checkpoint": "artifacts/phase10/d3qn_per_no_family_seed_42.pt",
+  "seed": 42,
+  "feature_columns": [
+    "Time",
+    "Protcol",
+    "Flag",
+    "Clusters",
+    "Threats",
+    "USD",
+    "BTC"
+  ],
+  "family_feature_excluded": true,
+  "calibration_samples": 17358,
+  "test_samples": 62257,
+  "known_test_samples": 37195,
+  "locky_test_samples": 25062,
+  "threshold_selection": "5th percentile of absolute Q-value margins from known-family calibration data; test data not used for threshold selection.",
+  "target_known_rejection_rate": 0.05,
+  "calibration_threshold": 0.41828593611717224,
+  "observed_calibration_rejection_rate": 0.050005761032377,
+  "open_set_metrics": {
+    "locky_unknown_detection_rate": 0.07517356954752215,
+    "locky_false_accept_rate": 0.9248264304524778,
+    "known_rejection_rate": 0.05089393735717166,
+    "known_acceptance_rate": 0.9491060626428284
+  },
+  "known_closed_set_metrics_before_rejection": {
+    "accuracy": 0.960586100282296,
+    "precision": 0.9414312704483664,
+    "recall": 0.9905454545454545,
+    "f1": 0.9653640788168029
+  },
+  "known_retained_metrics_after_rejection": {
+    "accuracy": 0.9754404849583593,
+    "precision": 0.9608996868178799,
+    "recall": 0.9978810427240921,
+    "f1": 0.979041264776271
+  },
+  "notes": [
+    "Family is excluded from the seven model input features.",
+    "Family metadata is used only for split integrity and evaluation.",
+    "The short smoke-test checkpoint is not a research result.",
+    "The threshold is selected from known-family calibration margins.",
+    "Locky test labels are not used for threshold selection."
+  ]
+}

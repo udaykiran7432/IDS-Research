@@ -1,0 +1,167 @@
+{
+  "experiment": "phase10_d3qn_per_no_family",
+  "method": "Dueling Double Deep Q-Network + Prioritized Experience Replay",
+  "family_feature_excluded": true,
+  "feature_columns": [
+    "Time",
+    "Protcol",
+    "Flag",
+    "Clusters",
+    "Threats",
+    "USD",
+    "BTC"
+  ],
+  "seed": 2026,
+  "device": "cpu",
+  "training_dataset": "data/processed/phase7_open_set/train.csv",
+  "state_dimension": 7,
+  "action_dimension": 2,
+  "training_samples": 69428,
+  "benign_samples": 30929,
+  "ransomware_samples": 38499,
+  "unseen_family": "Locky",
+  "unseen_family_training_samples": 0,
+  "episodes": 10,
+  "steps_per_episode": 20000,
+  "total_steps": 200000,
+  "replay_capacity": 100000,
+  "batch_size": 64,
+  "learning_rate": 0.001,
+  "gamma": 0.99,
+  "epsilon_start": 1.0,
+  "epsilon_end": 0.1,
+  "epsilon_decay": 0.995,
+  "epsilon_decay_frequency": "every_step",
+  "target_update": "end_of_episode",
+  "loss": "importance_sampling_weighted_MSE",
+  "optimizer": "Adam",
+  "state_transition": "sequential_training_data",
+  "architecture": {
+    "type": "dueling_dqn",
+    "feature_layers": [
+      64,
+      64
+    ],
+    "value_stream": [
+      64,
+      1
+    ],
+    "advantage_stream": [
+      64,
+      2
+    ]
+  },
+  "target_rule": "double_dqn",
+  "prioritized_replay": {
+    "enabled": true,
+    "alpha": 0.6,
+    "beta_start": 0.4,
+    "beta_increment": 0.001,
+    "priority_epsilon": 1e-06,
+    "priority_source": "absolute_td_error",
+    "new_transition_priority": "maximum_current_priority"
+  },
+  "history": [
+    {
+      "episode": 1,
+      "steps_completed": 20000,
+      "total_steps": 20000,
+      "episode_reward": 9540.200000001321,
+      "mean_loss": 0.02154506065526215,
+      "epsilon": 0.1,
+      "replay_size": 20000,
+      "per_beta": 1.0
+    },
+    {
+      "episode": 2,
+      "steps_completed": 20000,
+      "total_steps": 40000,
+      "episode_reward": 9905.600000001423,
+      "mean_loss": 0.08680875345073728,
+      "epsilon": 0.1,
+      "replay_size": 40000,
+      "per_beta": 1.0
+    },
+    {
+      "episode": 3,
+      "steps_completed": 20000,
+      "total_steps": 60000,
+      "episode_reward": 9993.200000001452,
+      "mean_loss": 0.09257921168697648,
+      "epsilon": 0.1,
+      "replay_size": 60000,
+      "per_beta": 1.0
+    },
+    {
+      "episode": 4,
+      "steps_completed": 20000,
+      "total_steps": 80000,
+      "episode_reward": 10015.000000001446,
+      "mean_loss": 0.10162720121025341,
+      "epsilon": 0.1,
+      "replay_size": 80000,
+      "per_beta": 1.0
+    },
+    {
+      "episode": 5,
+      "steps_completed": 20000,
+      "total_steps": 100000,
+      "episode_reward": 10065.800000001473,
+      "mean_loss": 0.10535650304942391,
+      "epsilon": 0.1,
+      "replay_size": 100000,
+      "per_beta": 1.0
+    },
+    {
+      "episode": 6,
+      "steps_completed": 20000,
+      "total_steps": 120000,
+      "episode_reward": 10101.600000001472,
+      "mean_loss": 0.10306453203820856,
+      "epsilon": 0.1,
+      "replay_size": 100000,
+      "per_beta": 1.0
+    },
+    {
+      "episode": 7,
+      "steps_completed": 20000,
+      "total_steps": 140000,
+      "episode_reward": 10131.000000001466,
+      "mean_loss": 0.09164273297800682,
+      "epsilon": 0.1,
+      "replay_size": 100000,
+      "per_beta": 1.0
+    },
+    {
+      "episode": 8,
+      "steps_completed": 20000,
+      "total_steps": 160000,
+      "episode_reward": 10113.400000001475,
+      "mean_loss": 0.0880747492409544,
+      "epsilon": 0.1,
+      "replay_size": 100000,
+      "per_beta": 1.0
+    },
+    {
+      "episode": 9,
+      "steps_completed": 20000,
+      "total_steps": 180000,
+      "episode_reward": 10111.200000001478,
+      "mean_loss": 0.10045173437044431,
+      "epsilon": 0.1,
+      "replay_size": 100000,
+      "per_beta": 1.0
+    },
+    {
+      "episode": 10,
+      "steps_completed": 20000,
+      "total_steps": 200000,
+      "episode_reward": 10117.600000001497,
+      "mean_loss": 0.09192927334883134,
+      "epsilon": 0.1,
+      "replay_size": 100000,
+      "per_beta": 1.0
+    }
+  ],
+  "checkpoint": "artifacts/phase10/d3qn_per_no_family_seed_2026.pt"
+}
