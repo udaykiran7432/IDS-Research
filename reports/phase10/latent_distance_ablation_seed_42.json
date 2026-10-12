@@ -1,0 +1,58 @@
+{
+  "experiment": "Latent-space distance ablation",
+  "seed": 42,
+  "features": [
+    "Time",
+    "Protcol",
+    "Flag",
+    "Clusters",
+    "Threats",
+    "USD",
+    "BTC"
+  ],
+  "family_included_as_input": false,
+  "unseen_test_family": "Locky",
+  "train_size": 69428,
+  "calibration_size": 17358,
+  "test_size": 62257,
+  "known_test_size": 37195,
+  "locky_test_size": 25062,
+  "target_calibration_rejection_rate": 0.05,
+  "threshold_policy": "Per-method quantile of known calibration scores; no Locky test labels used for fitting or threshold selection",
+  "methods": {
+    "reconstruction_error": {
+      "threshold": 0.23192323744297028,
+      "calibration_rejection_rate": 0.04994815070860698,
+      "known_test_rejection_rate": 0.05086705202312139,
+      "known_test_acceptance_rate": 0.9491329479768786,
+      "locky_unknown_detection_rate": 0.04588620221849812,
+      "locky_false_accept_rate": 0.9541137977815018,
+      "unknown_score_roc_auc": 0.46845181337029695,
+      "known_rejected_count": 1892,
+      "locky_rejected_count": 1150
+    },
+    "standardized_euclidean_nn": {
+      "threshold": 0.0011541114785313276,
+      "calibration_rejection_rate": 0.050005761032377,
+      "known_test_rejection_rate": 0.04936147331630596,
+      "known_test_acceptance_rate": 0.9506385266836941,
+      "locky_unknown_detection_rate": 0.09723884765780863,
+      "locky_false_accept_rate": 0.9027611523421913,
+      "unknown_score_roc_auc": 0.5289222247578528,
+      "known_rejected_count": 1836,
+      "locky_rejected_count": 2437
+    },
+    "regularized_mahalanobis": {
+      "threshold": 7.350355146998721,
+      "calibration_rejection_rate": 0.050005761032377,
+      "known_test_rejection_rate": 0.05352870009409867,
+      "known_test_acceptance_rate": 0.9464712999059013,
+      "locky_unknown_detection_rate": 0.041098076769611365,
+      "locky_false_accept_rate": 0.9589019232303886,
+      "unknown_score_roc_auc": 0.4689783773665694,
+      "known_rejected_count": 1991,
+      "locky_rejected_count": 1030
+    }
+  },
+  "selection_note": "Single-seed evaluation. Test metrics are for reporting, not model or threshold selection. Multi-seed validation is required before drawing conclusions."
+}

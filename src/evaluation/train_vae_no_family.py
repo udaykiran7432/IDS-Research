@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import sys
+import argparse
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -31,7 +32,8 @@ TRAIN_PATH = (
 ARTIFACT_DIR = PROJECT_ROOT / "artifacts" / "phase10"
 REPORT_DIR = PROJECT_ROOT / "reports" / "phase10"
 
-SEED = 42
+DEFAULT_SEED = 42
+SEED = DEFAULT_SEED
 BATCH_SIZE = 256
 EPOCHS = 50
 LEARNING_RATE = 1e-3
@@ -73,6 +75,18 @@ def get_device() -> torch.device:
 
 
 def main() -> None:
+    global SEED
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--seed",
+        type=int,
+        default=DEFAULT_SEED,
+        help="Random seed (default: 42)",
+    )
+    args = parser.parse_args()
+    SEED = args.seed
+
     set_seed(SEED)
 
     ARTIFACT_DIR.mkdir(
@@ -279,7 +293,7 @@ def main() -> None:
 
     checkpoint_path = (
         ARTIFACT_DIR
-        / "vae_no_family_seed_42.pt"
+        / f"vae_no_family_seed_{SEED}.pt"
     )
 
     torch.save(
@@ -320,7 +334,7 @@ def main() -> None:
 
     report_path = (
         REPORT_DIR
-        / "e4b_vae_training_seed_42.json"
+        / f"e4b_vae_training_seed_{SEED}.json"
     )
 
     with report_path.open("w") as f:

@@ -1,0 +1,155 @@
+{
+  "experiment": "E4b open-set rejection signal comparison",
+  "seed": 42,
+  "features": [
+    "Time",
+    "Protcol",
+    "Flag",
+    "Clusters",
+    "Threats",
+    "USD",
+    "BTC"
+  ],
+  "family_included": false,
+  "vae_checkpoint": "artifacts/phase10/vae_no_family_seed_42.pt",
+  "agent_checkpoint": "artifacts/phase10/e4b_d3qn_per_seed_42.pt",
+  "train_size": 69428,
+  "calibration_size": 17358,
+  "test_size": 62257,
+  "known_test_size": 37195,
+  "locky_test_size": 25062,
+  "threshold_policy": "95th percentile of known calibration scores",
+  "combined_score": "Equal-weight mean of calibration percentile ranks",
+  "calibration_classification": {
+    "accuracy": 0.9166378615047817,
+    "precision": 0.8696623926596871,
+    "recall": 0.9561562338334195,
+    "f1": 0.9108605926199717,
+    "fpr": 0.11510492416372325,
+    "confusion_matrix": [
+      [
+        8518,
+        1108
+      ],
+      [
+        339,
+        7393
+      ]
+    ]
+  },
+  "variants": {
+    "reconstruction_error": {
+      "threshold": 0.23192323744297028,
+      "calibration_rejection_rate": 0.04994815070860698,
+      "known_test_rejection_rate": 0.05086705202312139,
+      "known_test_acceptance_rate": 0.9491329479768786,
+      "locky_unknown_detection_rate": 0.04588620221849812,
+      "locky_false_accept_rate": 0.9541137977815018,
+      "known_retained_classification": {
+        "accuracy": 0.9116788941449735,
+        "precision": 0.8622342883548983,
+        "recall": 0.9531928480204342,
+        "f1": 0.9054349144728863,
+        "fpr": 0.12141729878328157,
+        "confusion_matrix": [
+          [
+            17258,
+            2385
+          ],
+          [
+            733,
+            14927
+          ]
+        ]
+      },
+      "unknown_score_roc_auc": 0.46845181337029695,
+      "known_rejected_count": 1892,
+      "locky_rejected_count": 1150
+    },
+    "latent_nearest_neighbor_distance": {
+      "threshold": 7.33571628838093e-05,
+      "calibration_rejection_rate": 0.050005761032377,
+      "known_test_rejection_rate": 0.04925393198010485,
+      "known_test_acceptance_rate": 0.9507460680198951,
+      "locky_unknown_detection_rate": 0.10126885324395499,
+      "locky_false_accept_rate": 0.898731146756045,
+      "known_retained_classification": {
+        "accuracy": 0.9151655685320815,
+        "precision": 0.866685616827743,
+        "recall": 0.9588050314465408,
+        "f1": 0.9104210212003583,
+        "fpr": 0.12048502286389559,
+        "confusion_matrix": [
+          [
+            17118,
+            2345
+          ],
+          [
+            655,
+            15245
+          ]
+        ]
+      },
+      "unknown_score_roc_auc": 0.5292743580541847,
+      "known_rejected_count": 1832,
+      "locky_rejected_count": 2538
+    },
+    "negative_q_margin": {
+      "threshold": -0.18570742011070251,
+      "calibration_rejection_rate": 0.050005761032377,
+      "known_test_rejection_rate": 0.053206076085495366,
+      "known_test_acceptance_rate": 0.9467939239145047,
+      "locky_unknown_detection_rate": 0.06603623014922991,
+      "locky_false_accept_rate": 0.9339637698507701,
+      "known_retained_classification": {
+        "accuracy": 0.9330985915492958,
+        "precision": 0.8893258106798883,
+        "recall": 0.9741556901179849,
+        "f1": 0.9298099267115533,
+        "fpr": 0.10116163983955827,
+        "confusion_matrix": [
+          [
+            17255,
+            1942
+          ],
+          [
+            414,
+            15605
+          ]
+        ]
+      },
+      "unknown_score_roc_auc": 0.5153878647119949,
+      "known_rejected_count": 1979,
+      "locky_rejected_count": 1655
+    },
+    "combined_percentile_score": {
+      "threshold": 0.8756778814763603,
+      "calibration_rejection_rate": 0.050005761032377,
+      "known_test_rejection_rate": 0.054147062777255006,
+      "known_test_acceptance_rate": 0.945852937222745,
+      "locky_unknown_detection_rate": 0.05925305242997367,
+      "locky_false_accept_rate": 0.9407469475700263,
+      "known_retained_classification": {
+        "accuracy": 0.9251868906512037,
+        "precision": 0.882462476018508,
+        "recall": 0.9660859896219421,
+        "f1": 0.92238277794161,
+        "fpr": 0.10967198441531091,
+        "confusion_matrix": [
+          [
+            16910,
+            2083
+          ],
+          [
+            549,
+            15639
+          ]
+        ]
+      },
+      "unknown_score_roc_auc": 0.4892765669597524,
+      "known_rejected_count": 2014,
+      "locky_rejected_count": 1485
+    }
+  },
+  "selection_note": "Test results are for final evaluation only; no test-driven threshold, weight, or model selection was performed."
+}
